@@ -1,22 +1,79 @@
-html {
+@use 'layout';
+.modal-body img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.modal-body form {
+  margin-top: 4em;
+}
+
+.modal-body form label {
+  text-transform: uppercase;
+  font-size: smaller;
+}
+
+.modal-body quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1em;
+  transform: scale(1.2);
+}
+
+.modal-body quantity input {
+  border: none;
+  width: 30px;
+  text-align: center;
+}
+
+.modal-body quantity button {
+  border: 1px solid #dbdbe6;
+  color: #07a7c4;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #495057;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.modal-footer button {
+  text-transform: uppercase;
+  width: 100%;
+}
+
+body {
   box-sizing: border-box;
   min-height: 100%;
   font-family: roboto condensed, serif;
-
 }
 
-/* ----------------------HEADER--------------------- */
 nav {
-  display:flex;
+  display: flex;
   flex-direction: column;
+  color: white;
 }
 
-nav top_bar{
+nav top_bar {
   background-color: #07a7c4;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: flex-end;
   height: 6vh;
+}
+
+nav top_bar button {
+  background: white;
+  padding: 5px 15px;
+  color: #07a7c4;
+  border: none;
+  border-radius: 0.25rem;
+  text-transform: none;
 }
 
 nav login_form {
@@ -24,8 +81,21 @@ nav login_form {
   margin-top: 0.6em;
   margin-right: 4%;
 }
-nav header{
-  background-image: url('https://pvsvending.com/wp-content/uploads/2018/03/header-officecoffee.jpg');
+
+nav login_form input {
+  background: #39b9d0;
+  border: 0;
+  color: white;
+  min-width: 340px;
+  border-radius: 0.25rem;
+}
+
+nav login_form input:focus {
+  outline: none;
+}
+
+nav header {
+  background-image: url("https://pvsvending.com/wp-content/uploads/2018/03/header-officecoffee.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -36,7 +106,6 @@ nav header{
   flex-direction: column;
   justify-content: flex-end;
   font-size: 24px;
-
 }
 
 nav header h1 {
@@ -45,22 +114,21 @@ nav header h1 {
   align-self: center;
 }
 
-/* ----------------------Main Content--------------------- */
 main {
-  display:flex;
+  display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin-left: 12vw;
+  margin-top: 5vh;
 }
 
-main side_categories {
-}
-
-main side_categories ul{
+main side_categories ul {
   display: flex;
   list-style: none;
   flex-direction: column;
   justify-content: flex-start;
   height: 50vh;
+  padding: 0;
 }
 
 main side_categories ul li {
@@ -69,59 +137,117 @@ main side_categories ul li {
   text-transform: uppercase;
 }
 
-mid_categories article {
-  display:flex;
+mid_categories {
+  display: flex;
   flex-direction: column;
-  margin-right:-10%;
-  margin-left:-10%;
+  width: 45vw;
 }
 
-mid_categories article header {
+mid_categories article {
+  display: flex;
+  flex-direction: column;
+  margin-right: -10%;
+  margin-left: -10%;
+  place-self: center;
+  width: 100%;
+  margin-bottom: 3em;
+}
+
+mid_categories article button {
+  padding: 0;
+  border: none;
+  background: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 1em;
 }
 
-mid_categories article header p2 {
-  margin: 21.280px;
+mid_categories article button:hover {
+  color: #07a7c4;
+}
+
+mid_categories article button:focus {
+  outline: none;
+}
+
+mid_categories article button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 mid_categories article p {
   font-size: smaller;
-margin-top: -2%;
+  margin-top: -2%;
+  word-wrap: break-word;
 }
 
 checkout {
-  width: 22vw;
-  margin-right: -10%;
-  border: 2px solid #B7D9EB;
-  border-radius: 25px;
-  padding: 2%;
-  margin-top:2%;
+  margin-right: 3%;
 }
+
+checkout header {
+  width: 22vw;
+  border: 2px solid #B7D9EB;
+  border-radius: 15px;
+  padding: 7%;
+  margin-top: 2%;
+  height: max-content;
+}
+
+checkout header h4 {
+  margin-top: 0;
+  border-bottom: 1px solid lightgray;
+}
+
 cart article {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
 cart article p {
-    margin: 0%;
-}
-cart article quantity {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  margin: 0%;
 }
 
 cart article item {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-self: center;
+  justify-content: space-evenly;
+  align-items: center;
 }
+
+cart article item itemName {
+  padding-left: 1em;
+}
+
+cart article price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+cart article price p {
+  padding-left: 1em;
+}
+
 cart totals {
   display: flex;
   flex-direction: column;
+  border-top: 2px solid #B7D9EB;
+  margin-top: 70%;
+}
+
+cart totals th {
+  text-align: left;
+}
+
+cart totals td {
+  text-align: right;
+}
+
+cart totals button {
+  text-transform: uppercase;
 }
