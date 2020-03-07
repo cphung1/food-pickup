@@ -10,60 +10,109 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" data-auto-a11y="true"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <nav>
-      <form>
+      <top_bar>
+        <login_form>
         <label>Username: </label>
         <input placeholder="Username">
         <button>Login</button>
-      </form>
+      </login_form>
+      </top_bar>
+      <header>
+        <h1>Resturant Name</h1>
+      </header>
     </nav>
-    <header>
-      <h1>Resturant Name</h1>
-    </header>
     <main>
+      <side_categories>
       <ul>
-        <li>Popular</li>
-        <li>Food</li>
-        <li>Drinks</li>
+        <li>popular</li>
+        <li>food</li>
+        <li>drinks</li>
       </ul>
-      <div>
+    </side_categories>
+      <mid_categories>
         <article>
           <header>
             <h4>Latte</h4>
-            <p>Espresso, steamed milk & a layer of foam on top. The classic milk & espresso drink.</p>
-            <p>$4.75</p>
+            <p2>$4.75</p2>
           </header>
+          <p>Espresso, steamed milk & a layer of foam on top. The classic milk & espresso drink.</p>
         </article>
-      </div>
-      <div>
+        <article>
+          <header>
+            <h4>Latte</h4>
+            <p2>$4.75</p2>
+          </header>
+          <p>Espresso, steamed milk & a layer of foam on top. The classic milk & espresso drink.</p>
+        </article>
+        <article>
+          <header>
+            <h4>Latte</h4>
+            <p2>$4.75</p2>
+          </header>
+          <p>Espresso, steamed milk & a layer of foam on top. The classic milk & espresso drink.</p>
+        </article>
+        <article>
+          <header>
+            <h4>Latte</h4>
+            <p2>$4.75</p2>
+          </header>
+          <p>Espresso, steamed milk & a layer of foam on top. The classic milk & espresso drink.</p>
+        </article>
+        <article>
+          <header>
+            <h4>Latte</h4>
+            <p2>$4.75</p2>
+          </header>
+          <p>Espresso, steamed milk & a layer of foam on top. The classic milk & espresso drink.</p>
+        </article>
+        <article>
+          <header>
+            <h4>Latte</h4>
+            <p2>$4.75</p2>
+          </header>
+          <p>Espresso, steamed milk & a layer of foam on top. The classic milk & espresso drink.</p>
+        </article>
+        <article>
+          <header>
+            <h4>Latte</h4>
+            <p2>$4.75</p2>
+          </header>
+          <p>Espresso, steamed milk & a layer of foam on top. The classic milk & espresso drink.</p>
+        </article>
+      </mid_categories>
+      <checkout>
         <header>
           <h4>Checkout</h4>
           <cart>
             <article>
               <quantity>
-                <i class="fas fa-plus"></i>
+                <i class="fas fa-plus fa-xs"></i>
                 <p>1</p>
-                <i class="fas fa-minus"></i>
+                <i class="fas fa-minus fa-xs"></i>
+                <p>Latte</p>
               </quantity>
               <item>
-                <p>Latte</p>
                 <p>$6.50</p>
-                <i class="fas fa-times"></i>
+                <i class="fas fa-times fa-xs"></i>
               </item>
             </article>
             <totals>
               <table style="width:100%">
                 <tr>
                   <th>Subtotal</th>
-                  <th>Tax</th>
-                  <th>Total</th>
+                  <td>$6.50</td>
                 </tr>
                 <tr>
-                  <td>$6.50</td>
+                  <th>Tax</th>
                   <td>$0.33</td>
+                </tr>
+                <tr>
+                  <th>Total</th>
                   <td>$6.83</td>
                 </tr>
               </table>
@@ -71,7 +120,7 @@
             </totals>
           </cart>
         </header>
-      </div>
+      </checkout>
     </main>
   </body>
 </html>
