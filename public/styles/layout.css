@@ -32,6 +32,10 @@
   color: #07a7c4;
 }
 
+.modal-body quantity button:focus {
+  outline: none;
+}
+
 .form-control:focus {
   box-shadow: none;
   border-color: #495057;
