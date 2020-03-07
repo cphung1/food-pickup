@@ -1,0 +1,127 @@
+html {
+  box-sizing: border-box;
+  min-height: 100%;
+  font-family: roboto condensed, serif;
+
+}
+
+/* ----------------------HEADER--------------------- */
+nav {
+  display:flex;
+  flex-direction: column;
+}
+
+nav top_bar{
+  background-color: #07a7c4;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 6vh;
+}
+
+nav login_form {
+  justify-self: flex-end;
+  margin-top: 0.6em;
+  margin-right: 4%;
+}
+nav header{
+  background-image: url('https://pvsvending.com/wp-content/uploads/2018/03/header-officecoffee.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 25vh;
+  margin-left: 12vw;
+  margin-right: 12vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: 24px;
+
+}
+
+nav header h1 {
+  font-family: roboto condensed, serif;
+  color: white;
+  align-self: center;
+}
+
+/* ----------------------Main Content--------------------- */
+main {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+main side_categories {
+}
+
+main side_categories ul{
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 50vh;
+}
+
+main side_categories ul li {
+  margin-bottom: 15%;
+  font-size: smaller;
+  text-transform: uppercase;
+}
+
+mid_categories article {
+  display:flex;
+  flex-direction: column;
+  margin-right:-10%;
+  margin-left:-10%;
+}
+
+mid_categories article header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+mid_categories article header p2 {
+  margin: 21.280px;
+}
+
+mid_categories article p {
+  font-size: smaller;
+margin-top: -2%;
+}
+
+checkout {
+  width: 22vw;
+  margin-right: -10%;
+  border: 2px solid #B7D9EB;
+  border-radius: 25px;
+  padding: 2%;
+  margin-top:2%;
+}
+cart article {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+cart article p {
+    margin: 0%;
+}
+cart article quantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+cart article item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+}
+cart totals {
+  display: flex;
+  flex-direction: column;
+}
