@@ -9,9 +9,69 @@
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" data-auto-a11y="true"></script>
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <nav>
+      <form>
+        <label>Username: </label>
+        <input placeholder="Username">
+        <button>Login</button>
+      </form>
+    </nav>
+    <header>
+      <h1>Resturant Name</h1>
+    </header>
+    <main>
+      <ul>
+        <li>Popular</li>
+        <li>Food</li>
+        <li>Drinks</li>
+      </ul>
+      <div>
+        <article>
+          <header>
+            <h4>Latte</h4>
+            <p>Espresso, steamed milk & a layer of foam on top. The classic milk & espresso drink.</p>
+            <p>$4.75</p>
+          </header>
+        </article>
+      </div>
+      <div>
+        <header>
+          <h4>Checkout</h4>
+          <cart>
+            <article>
+              <quantity>
+                <i class="fas fa-plus"></i>
+                <p>1</p>
+                <i class="fas fa-minus"></i>
+              </quantity>
+              <item>
+                <p>Latte</p>
+                <p>$6.50</p>
+                <i class="fas fa-times"></i>
+              </item>
+            </article>
+            <totals>
+              <table style="width:100%">
+                <tr>
+                  <th>Subtotal</th>
+                  <th>Tax</th>
+                  <th>Total</th>
+                </tr>
+                <tr>
+                  <td>$6.50</td>
+                  <td>$0.33</td>
+                  <td>$6.83</td>
+                </tr>
+              </table>
+              <button>Submit</button>
+            </totals>
+          </cart>
+        </header>
+      </div>
+    </main>
   </body>
 </html>
