@@ -230,7 +230,7 @@ cart article price {
 }
 
 cart article price p {
-  padding-left: 1em;
+  padding-right: 0.5em;
 }
 
 cart totals {
