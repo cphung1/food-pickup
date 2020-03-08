@@ -1,24 +1,25 @@
 $(function() {
   function incrementVal(selector) {
-    var $item = selector;
-    var currentVal = $item.attr("value");
+    let $item = selector;
+    let currentVal = $item.attr("value");
     $item.attr("value", parseInt(currentVal) + 1 );
   }
 
   function decreaseVal(selector) {
-    var $item = selector;
-    var currentVal = $item.attr("value");
+    let $item = selector;
+    let currentVal = $item.attr("value");
     if (currentVal > 1) {
       $item.attr("value", parseInt(currentVal) - 1 );
     }
   }
 
   $('#increase').click(function() {
-    incrementVal($('#quantity'));
+    incrementVal($('#quantity').atrr("class", "<%= item.id %>"));
   });
 
   $('#decrease').click(function() {
-    decreaseVal($('#quantity'));
+    decreaseVal($('#quantity').atrr("class", "<%= item.id %>"));
   });
+
 
 });

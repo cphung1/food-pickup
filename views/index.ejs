@@ -27,11 +27,13 @@
         <login_form>
         <label>Username</label>
         <input placeholder="Username">
+        <label>Password</label>
+        <input placeholder="Password">
         <button>Login</button>
       </login_form>
       </top_bar>
       <header>
-        <h1>Resturant Name</h1>
+        <h1>Lighthouse Cafe</h1>
       </header>
     </nav>
     <main>
@@ -45,16 +47,15 @@
       <mid_categories>
         <% for (const item of items) { %>
         <article>
-          <button type="button" data-toggle="modal" data-target="#exampleModalCenter">
+          <button type="button" data-toggle="modal" data-target="#modalOne-<%= item.id %>" >
             <h4><%= item.name %></h4>
             <p2><%= item.price %></p2>
           </button>
           <p class="text-left"><%= item.description %></p>
         </article>
-        <% } %>
 
-        <% for (const item of items) { %>
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+        <div class="modal fade" id="modalOne-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -73,7 +74,7 @@
                   <button id="decrease">
                     <i class="fas fa-minus fa-xs"></i>
                   </button>
-                  <input value='1' id="quantity" disabled="disabled">
+                  <input value='1' id="quantity" disabled="disabled" class="<%= item.id %>">
                   <button id="increase">
                     <i class="fas fa-plus fa-xs"></i>
                   </button>
@@ -87,8 +88,6 @@
           </div>
         </div>
         <% } %>
-
-
       </mid_categories>
       <checkout>
         <header>

@@ -24,7 +24,7 @@ nav {
     display:flex;
     flex-direction: row;
     justify-content: flex-end;
-    height: 8.5vh;
+    height: 4em;
     button {
       background: white;
       padding: 5px 15px;
@@ -119,26 +119,28 @@ mid_categories {
       flex-direction: row;
       justify-content: space-between;
       margin-bottom: 1em;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
       &:hover {
         color: $primary-color;
       }
       &:focus {
         outline: none;
       }
+      h4 {
+        text-transform:capitalize;
+      }
     }
-
   }
 
-  article button {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  article p {
+  p {
     font-size: smaller;
     margin-top: -2%;
     word-wrap: break-word;
+    &::first-letter {
+      text-transform: uppercase;
+    }
   }
 
 }

@@ -54,7 +54,6 @@ app.get("/", (req, res) => {
     if (err) {
       return res.render('error', { err });
     }
-    console.log({ items })
     res.render('index', { items });
   });
 });
