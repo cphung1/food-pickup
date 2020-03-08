@@ -68,7 +68,7 @@ nav top_bar {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  height: 6vh;
+  height: 8.5vh;
 }
 
 nav top_bar button {
