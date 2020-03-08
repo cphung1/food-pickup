@@ -2,20 +2,21 @@
 <html lang="en">
   <head>
     <title>Home Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-
-
-
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-
+    <!-- APP JS -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/quantity_incrementor.js"></script>
+
+    <!-- External Js -->
     <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" data-auto-a11y="true"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
   </head>
@@ -42,31 +43,28 @@
       </ul>
     </side_categories>
       <mid_categories>
+        <% for (const item of items) { %>
         <article>
           <button type="button" data-toggle="modal" data-target="#exampleModalCenter">
-            <h4>Latte</h4>
-            <p2>$4.75</p2>
+            <h4><%= item.name %></h4>
+            <p2><%= item.price %></p2>
           </button>
-          <p class="text-left">Espresso, steamed milk & a layer of foam on top. The classic milk & espresso drink.</p>
+          <p class="text-left"><%= item.description %></p>
         </article>
-        <article>
-          <button>
-            <h4>Espresso</h4>
-            <p2>$3.25</p2>
-          </button>
-          <p class="text-left">Freshly prepared coffee through finely ground beans that is rich & aromatic with a natural layer of 'crema' on top. Perfect for coffee purists.</p>
-        </article>
+        <% } %>
+
+        <% for (const item of items) { %>
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Latte</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle"><%= item.name %></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
-                Espresso, steamed milk & a layer of foam on top. The classic milk & espresso drink.
+                <%= item.description %>
                 <form>
                   <label for="exampleFormControlTextarea1">List any special requests you may have (ie. allergies, extra spicy, etc)</label>
                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
@@ -88,6 +86,8 @@
             </div>
           </div>
         </div>
+        <% } %>
+
 
       </mid_categories>
       <checkout>

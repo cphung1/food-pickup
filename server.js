@@ -43,13 +43,25 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 
+
+const { browse } = require('./db/queries');
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  // res.render("index");
+  browse((err, items) => {
+    if (err) {
+      return res.render('error', { err });
+    }
+    console.log({ items })
+    res.render('index', { items });
+  });
 });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+// itemRouter = require('./routes/itemsRoute');
+// app.use('/index', itemRouter);
