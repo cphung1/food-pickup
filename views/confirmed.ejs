@@ -26,8 +26,13 @@
 
     <h4>Your Order:</h4>
     <orderd_items>
-      <item>Latte</item>
-      <price>$3.50</price>
+      <% for (const item of checkoutStuff) { %>
+        <div>
+          <item><%= item.name %></item>
+          <price><%= item.price %></price>
+          <price><%= item.special_requests %></price>
+        </div>
+      <% } %>
     </orderd_items>
   </main>
 

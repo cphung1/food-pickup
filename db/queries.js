@@ -19,16 +19,17 @@ const browse = (cb) => {
     .catch(err => cb(err));
 };
 
-const checkoutItems = (cb) => {
+const checkoutItems = (cb, id) => {
   client.query(`SELECT * from order_items
-  JOIN orders ON order_items.order_id = orders.id
-  JOIN items on items.id = order_items.id
-  WHERE orders.id = 4;`)
+  JOIN orders ON order_id = orders.id
+  JOIN items on item_id = items.id
+  WHERE orders.id = 50;`)
     .then(data => {
+      console.log(data.rows)
       cb(null, data.rows);
     })
     .catch(err => cb(err));
-}
+};
 
 
 const newOrder = (is_empty, cb) => {
