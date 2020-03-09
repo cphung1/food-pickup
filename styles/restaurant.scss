@@ -3,4 +3,13 @@
 main {
   margin-left: 12vw;
   margin-right: 12vw;
+
+  form {
+    input {
+      border-radius: $bs-border-radius;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
 }
