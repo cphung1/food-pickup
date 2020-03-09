@@ -1,11 +1,5 @@
-$primary-color: #07a7c4;
-$secondary-color: #B7D9EB;
-$dark-color: #39b9d0;
-$bs-blue: #17a2b8;
-$bs-border-radius: 0.25rem;
-
-@import 'modal';
 @import 'header';
+@import 'modal';
 
 main {
   display:flex;
