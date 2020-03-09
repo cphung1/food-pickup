@@ -1,0 +1,160 @@
+$primary-color: #07a7c4;
+$secondary-color: #B7D9EB;
+$dark-color: #39b9d0;
+$bs-blue: #17a2b8;
+$bs-border-radius: 0.25rem;
+
+@import 'modal';
+@import 'header';
+
+
+body {
+  box-sizing: border-box;
+  min-height: 100%;
+  font-family: roboto condensed, serif;
+
+}
+
+main {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 12vw;
+  margin-top: 5vh;
+
+  side_categories ul {
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 50vh;
+    padding: 0;
+  }
+
+  side_categories ul li {
+    margin-bottom: 15%;
+    font-size: smaller;
+    text-transform: uppercase;
+  }
+}
+
+mid_categories {
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+
+  article {
+    display:flex;
+    flex-direction: column;
+    margin-right:-10%;
+    margin-left:-10%;
+    place-self: center;
+    width: 100%;
+    margin-bottom: 3em;
+
+    button {
+      padding: 0;
+      border: none;
+      background: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 1em;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      &:hover {
+        color: $primary-color;
+      }
+      &:focus {
+        outline: none;
+      }
+      h4 {
+        text-transform:capitalize;
+      }
+    }
+  }
+
+  p {
+    font-size: smaller;
+    margin-top: -2%;
+    word-wrap: break-word;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+}
+
+checkout {
+  margin-right: 3%;
+
+  header {
+    width: 22vw;
+    border: 2px solid $secondary-color;
+    border-radius: 15px;
+    padding: 7%;
+    margin-top: 2%;
+    height: max-content;
+  }
+
+  header h4 {
+    margin-top: 0;
+    border-bottom: 1px solid lightgray;
+  }
+}
+
+cart {
+  article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+  }
+
+  article p {
+    margin: 0%;
+  }
+
+  article item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    itemName {
+      padding-left: 1em;
+    }
+  }
+
+
+  article price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      padding-right: 0.5em;
+    }
+  }
+
+  totals {
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid $secondary-color;
+    margin-top: 70%;
+
+    th {
+      text-align: left;
+    }
+
+    td {
+      text-align: right;
+    }
+    button {
+      text-transform: uppercase;
+    }
+  }
+
+}

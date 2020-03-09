@@ -1,0 +1,61 @@
+@use 'layout';
+
+nav {
+  display:flex;
+  flex-direction: column;
+  color: white;
+
+  top_bar {
+    background-color: $primary-color;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 4em;
+    button {
+      background: white;
+      padding: 5px 15px;
+      color: $primary-color;
+      border: none;
+      border-radius: $bs-border-radius;
+      text-transform: none;
+    }
+  }
+
+  login_form {
+    justify-self: flex-end;
+    margin-top: 0.6em;
+    margin-right: 4%;
+
+    input {
+      background: $dark-color;
+      border: 0;
+      color: white;
+      min-width: 340px;
+      border-radius: $bs-border-radius;
+      &:focus {
+        outline: none;
+      }
+    }
+
+  }
+
+  header {
+    background-image: url('https://pvsvending.com/wp-content/uploads/2018/03/header-officecoffee.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 25vh;
+    margin-left: 12vw;
+    margin-right: 12vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 24px;
+  }
+
+  header h1 {
+    font-family: roboto condensed, serif;
+    color: white;
+    align-self: center;
+  }
+}
