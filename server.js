@@ -42,7 +42,6 @@ const ordersConfirmed = require("./routes/ordersConfirmed");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
-// itemRouter = require('./routes/itemsRoute');
 app.use(ordersConfirmed);
 
 
@@ -64,5 +63,3 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
-// itemRouter = require('./routes/itemsRoute');
-// app.use('/index', itemRouter);
