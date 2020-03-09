@@ -30,4 +30,40 @@ const checkoutItems = (cb) => {
     .catch(err => cb(err));
 }
 
-module.exports = { browse, checkoutItems };
+
+const newOrder = (is_empty, cb) => {
+
+  if (is_empty) {
+    client.query(`INSERT INTO orders (user_id, is_accepted, is_done, time_est)
+    VALUES (1, false, false, 0);`)
+    .then(() => {
+    client.query(`SELECT id from orders
+    ORDER BY id DESC
+    LIMIT 1;`)
+    .then(data => {
+      cb(null,data.rows);
+    })
+    })
+    .catch(err => cb(err));
+  }
+
+  if (!is_empty) {
+    client.query(`SELECT id from orders
+    ORDER BY id DESC
+    LIMIT 1;`)
+    .then(data => {
+      cb(null,data.rows);
+    })
+  }
+
+}
+
+const addItem = (order_id, item_id, quantity, spec_req) => {
+
+  console.log("sgsg", spec_req);
+  client.query(`INSERT INTO order_items (order_id, item_id, quantity, special_requests)
+  VALUES (${order_id}, ${item_id}, ${quantity}, ${spec_req});`);
+  console.log("IT WORKED");
+}
+
+module.exports = { browse, checkoutItems, newOrder, addItem };

@@ -17,7 +17,7 @@ const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
-const { browse, checkoutItems } = require('./db/queries');
+const { browse, checkoutItems, newOrder, addItem } = require('./db/queries');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -70,10 +70,30 @@ app.get("/", (req, res) => {
   });
 });
 
+let is_empty = true;
+
 app.post('/', (req, res) => {
+
   console.log(req.body);
-  res.send(req.body);
+
+  const templateVars = {
+    item_id: req.body.item_id,
+    special_req: req.body.specialRequests,
+    quantity: req.body.quant
+  }
+
+  newOrder( is_empty, (err, order) => {
+    is_empty = false;
+    if (err) {
+      return res.render('error', { err });
+    }
+    let order_id = order[0].id;
+
+    addItem(order_id, templateVars.item_id, templateVars.quantity, templateVars.special_req);
+  });
+
 });
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

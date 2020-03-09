@@ -58,10 +58,9 @@
               </div>
               <div class="modal-body">
                 <div class="modal-description"><%= item.description %></div>
-                <form>
-                </form>
                 <quantity>
                   <form action="/" method="POST">
+                    <textarea name="item_id" type="text" id="hideen"><%= item.id %> </textarea>
                     <label for="exampleFormControlTextarea1">List any special requests you may have (ie. allergies, extra spicy, etc)</label>
                     <textarea name="specialRequests" type="text" class="form-control" id="formTextArea-<%= item.id %>" rows="3"></textarea>
                     <button type="button" class="decrease">

@@ -142,6 +142,10 @@ nav header h1 {
   width: 100%;
 }
 
+#hideen {
+  display: none;
+}
+
 main {
   display: flex;
   flex-direction: row;
