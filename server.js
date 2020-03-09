@@ -73,9 +73,6 @@ app.get("/", (req, res) => {
 let is_empty = true;
 
 app.post('/', (req, res) => {
-
-  console.log(req.body);
-
   const templateVars = {
     item_id: req.body.item_id,
     special_req: req.body.specialRequests,

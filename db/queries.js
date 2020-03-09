@@ -59,11 +59,8 @@ const newOrder = (is_empty, cb) => {
 }
 
 const addItem = (order_id, item_id, quantity, spec_req) => {
-
-  console.log("sgsg", spec_req);
   client.query(`INSERT INTO order_items (order_id, item_id, quantity, special_requests)
   VALUES (${order_id}, ${item_id}, ${quantity}, ${spec_req});`);
-  console.log("IT WORKED");
 }
 
 module.exports = { browse, checkoutItems, newOrder, addItem };
