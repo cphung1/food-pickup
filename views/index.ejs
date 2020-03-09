@@ -47,15 +47,13 @@
       <mid_categories>
         <% for (const item of items) { %>
         <article>
-          <button type="button" data-toggle="modal" data-target="#modalOne-<%= item.id %>" >
+          <button type="button" data-toggle="modal" data-target="#modal-<%= item.id %>" >
             <h4><%= item.name %></h4>
             <p2><%= item.price %></p2>
           </button>
           <p class="text-left"><%= item.description %></p>
         </article>
-
-
-        <div class="modal fade" id="modalOne-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="modal-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -65,17 +63,17 @@
                 </button>
               </div>
               <div class="modal-body">
-                <%= item.description %>
+                <div class="modal-description"><%= item.description %></div>
                 <form>
                   <label for="exampleFormControlTextarea1">List any special requests you may have (ie. allergies, extra spicy, etc)</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <textarea class="form-control" id="formTextArea-<%= item.id %>" rows="3"></textarea>
                 </form>
                 <quantity>
-                  <button id="decrease">
+                  <button id="decrease<%= item.id %>" class="decrease">
                     <i class="fas fa-minus fa-xs"></i>
                   </button>
-                  <input value='1' id="quantity" disabled="disabled" class="<%= item.id %>">
-                  <button id="increase">
+                  <input value='1' id="qty<%= item.id %>" disabled="disabled" class="qty" >
+                  <button id="increase<%= item.id %>" class="increase">
                     <i class="fas fa-plus fa-xs"></i>
                   </button>
                 </quantity>

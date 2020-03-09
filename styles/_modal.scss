@@ -1,5 +1,11 @@
 @use 'layout';
 
+.modal-header {
+  h5 {
+    text-transform: capitalize;
+  }
+}
+
 .modal-body {
   img {
     max-width: 100%;
@@ -34,6 +40,12 @@
         outline: none;
       }
     }
+  }
+}
+
+.modal-description {
+  &::first-letter{
+    text-transform: uppercase;
   }
 }
 
