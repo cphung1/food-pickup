@@ -19,4 +19,15 @@ const browse = (cb) => {
     .catch(err => cb(err));
 };
 
-module.exports = { browse };
+const checkoutItems = (cb) => {
+  client.query(`SELECT * from order_items
+  JOIN orders ON order_items.order_id = orders.id
+  JOIN items on items.id = order_items.id
+  WHERE orders.id = 4;`)
+    .then(data => {
+      cb(null, data.rows);
+    })
+    .catch(err => cb(err));
+}
+
+module.exports = { browse, checkoutItems };

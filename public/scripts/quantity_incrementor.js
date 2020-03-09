@@ -7,9 +7,16 @@ $(function() {
     updateValue(this, -1);
   });
 
+  $('.qty').hover(function() {
+    console.log("test");
+    event.preventDefault();
+    $(this).blur();
+  });
+
   function updateValue(obj, delta) {
     let item = $(obj).parent().find("input");
     let newValue = parseInt(item.val(), 10) + delta;
     item.val(Math.max(newValue, 1));
   }
+
 });

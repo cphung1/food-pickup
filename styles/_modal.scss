@@ -39,6 +39,22 @@
       }
     }
   }
+  quantity {
+    form {
+      max-width: 85%;
+    }
+  }
+}
+
+.qty {
+  pointer-events: none;
+  cursor: not-allowed;
+  box-shadow: none;
+  &:focus {
+    pointer-events: none;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
 }
 
 .modal-description {
@@ -55,6 +71,7 @@
 }
 
 .modal-footer {
+  border-top: none;
   display: flex;
   flex-direction: column-reverse;
 

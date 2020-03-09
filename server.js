@@ -17,7 +17,7 @@ const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
-const { browse } = require('./db/queries');
+const { browse, checkoutItems } = require('./db/queries');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -53,14 +53,27 @@ app.use(restaurantConfirm);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
+
   browse((err, items) => {
     if (err) {
       return res.render('error', { err });
     }
-    res.render('index', { items });
+
+    checkoutItems((err, checkoutStuff) => {
+      if (err) {
+        return res.render('error', { err });
+      }
+      res.render('index', { items, checkoutStuff });
+    });
+
+    // res.render('index', { items });
   });
 });
 
+app.post('/', (req, res) => {
+  console.log(req.body);
+  res.send(req.body);
+});
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

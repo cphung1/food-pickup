@@ -106,6 +106,22 @@ nav header h1 {
   outline: none;
 }
 
+.modal-body quantity form {
+  max-width: 85%;
+}
+
+.qty {
+  pointer-events: none;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.qty:focus {
+  pointer-events: none;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 .modal-description::first-letter {
   text-transform: uppercase;
 }
@@ -116,6 +132,7 @@ nav header h1 {
 }
 
 .modal-footer {
+  border-top: none;
   display: flex;
   flex-direction: column-reverse;
 }

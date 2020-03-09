@@ -59,22 +59,24 @@
               <div class="modal-body">
                 <div class="modal-description"><%= item.description %></div>
                 <form>
-                  <label for="exampleFormControlTextarea1">List any special requests you may have (ie. allergies, extra spicy, etc)</label>
-                  <textarea class="form-control" id="formTextArea-<%= item.id %>" rows="3"></textarea>
                 </form>
                 <quantity>
-                  <button class="decrease">
-                    <i class="fas fa-minus fa-xs"></i>
-                  </button>
-                  <input value='1' id="qty<%= item.id %>" disabled="disabled" class="qty" >
-                  <button class="increase">
-                    <i class="fas fa-plus fa-xs"></i>
-                  </button>
+                  <form action="/" method="POST">
+                    <label for="exampleFormControlTextarea1">List any special requests you may have (ie. allergies, extra spicy, etc)</label>
+                    <textarea name="specialRequests" type="text" class="form-control" id="formTextArea-<%= item.id %>" rows="3"></textarea>
+                    <button type="button" class="decrease">
+                      <i class="fas fa-minus fa-xs"></i>
+                    </button>
+                    <input name="quant" type="text" value="1" id="qty<%= item.id %>"  class="qty" >
+                    <button type="button" class="increase">
+                      <i class="fas fa-plus fa-xs"></i>
+                    </button>
+                    <button type="submit" class="btn btn-info" >Add to order</button>
+                  </form>
                 </quantity>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-info">Add to order</button>
               </div>
             </div>
           </div>
@@ -87,6 +89,20 @@
         <header>
           <h4>Checkout</h4>
           <cart>
+
+          <% for (const check of checkoutStuff) { %>
+              <article>
+                <item>
+                  <number><%= check.quantity %></number>
+                  <itemName><%= check.name %></itemName>
+                </item>
+                <price>
+                  <p><%= check.price %></p>
+                  <i class="fas fa-times fa-xs"></i>
+                </price>
+              </article>
+              <% } %>
+
             <article>
               <item>
                 <number>1</number>
@@ -117,7 +133,7 @@
           </cart>
         </header>
       </checkout>
-    </main>
+
 
     <!-- BootStrap -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
