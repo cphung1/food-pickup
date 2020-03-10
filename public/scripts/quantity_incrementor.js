@@ -8,7 +8,6 @@ $(function() {
   });
 
   $('.qty').hover(function() {
-    console.log("test");
     event.preventDefault();
     $(this).blur();
   });

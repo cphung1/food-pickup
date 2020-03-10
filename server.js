@@ -39,7 +39,7 @@ const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
 
-const { browse, checkoutItems, newOrder, addItem } = require('./db/queries');
+const { browse, checkoutItems, newOrder, addItem, deleteItem } = require('./db/queries');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -64,6 +64,7 @@ const ordersConfirmed = require("./routes/ordersConfirmed");
 const restaurantConfirm = require("./routes/restaurantConfirm")
 const login = require("./routes/login")
 const deleteItems = require("./routes/deleteRoute")
+// const deleteItems = require("./routes/deleteRoute")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -74,6 +75,7 @@ app.use(ordersConfirmed);
 app.use(restaurantConfirm);
 app.use(login);
 app.use(deleteItems);
+// app.use(deleteItems);
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -87,20 +89,18 @@ let totalStuff = {
 };
 
 app.get("/", (req, res) => {
+  browse((err, items) => {
+    if (err) {
+      return res.render('error', { err });
+    }
 
-
-    browse((err, items) => {
+    checkoutItems(order_id, (err, checkoutStuff) => {
       if (err) {
         return res.render('error', { err });
       }
-
-      checkoutItems(order_id, (err, checkoutStuff) => {
-        if (err) {
-          return res.render('error', { err });
-        }
-        res.render('index', { items, checkoutStuff, totalStuff });
-      });
+      res.render('index', { items, checkoutStuff, totalStuff });
     });
+  });
 });
 
 
@@ -145,6 +145,36 @@ app.post('/', (req, res) => {
   });
 });
 
+app.post('/delete', (req, res) => {
+  deleteItem(req.body.order_id, req.body.item_id);
+  browse((err, items) => {
+    if (err) {
+      return res.render('error', { err });
+    }
+
+    checkoutItems(order_id, (err, checkoutStuff) => {
+      if (err) {
+        return res.render('error', { err });
+      }
+      if (checkoutStuff.length === 0 ){
+        totalStuff.subtotal = 0;
+        totalStuff.tax = 0;
+        totalStuff.total = 0;
+        res.render('index', { items, checkoutStuff, totalStuff });
+      }else {
+        let subtotal = totalStuff.subtotal;
+        for (let i = 0; i < checkoutStuff.length; i++) {
+          subtotal-= (checkoutStuff[i].price * checkoutStuff[i].quantity);
+        }
+        totalStuff.subtotal = Math.round(subtotal*100) / 100;
+        totalStuff.tax = Math.round(subtotal*0.12*100) / 100;
+        totalStuff.total = Math.round((subtotal + subtotal*0.12)*100) / 100;
+        res.render('index', { items, checkoutStuff, totalStuff });
+      }
+    });
+  });
+  res.redirect("/")
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
