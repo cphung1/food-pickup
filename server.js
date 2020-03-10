@@ -83,8 +83,6 @@ app.get("/", (req, res) => {
 
 app.post('/', (req, res) => {
 
-  console.log(req.body);
-
   const templateVars = {
     item_id: req.body.item_id,
     quantity: req.body.quant,
@@ -120,7 +118,6 @@ app.post('/', (req, res) => {
         totalStuff.total = Math.round((subtotal + subtotal*0.12)*100) / 100;
         res.render('index', { items, checkoutStuff, totalStuff });
       });
-
     });
   });
 

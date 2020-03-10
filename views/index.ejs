@@ -97,7 +97,7 @@
                 </item>
                 <price>
                   <p><%= check.price %></p>
-                  <button>
+                  <button id="delete_item">
                     <i class="fas fa-times fa-xs"></i>
                   </button>
                 </price>
@@ -109,15 +109,15 @@
             <totals>
               <table style="width:100%">
                 <tr>
-                  <th>Subtotal</th>
+                  <th id="subtotal">Subtotal</th>
                   <td><%= totalStuff.subtotal %></td>
                 </tr>
                 <tr>
-                  <th>Tax</th>
+                  <th id="tax">Tax</th>
                   <td><%= totalStuff.tax %></td>
                 </tr>
                 <tr>
-                  <th>Total</th>
+                  <th id="total">Total</th>
                   <td><%= totalStuff.total %></td>
                 </tr>
               </table>
