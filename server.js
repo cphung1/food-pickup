@@ -151,6 +151,7 @@ app.post('/delete', (req, res) => {
 });
 
 const { orderConfirmed } = require('./routes/twilio_msgs')
+
 app.post('/order_placed', (req, res) => {
   orderConfirmed(order_id);
   res.redirect(`/confirmed/${order_id}`)

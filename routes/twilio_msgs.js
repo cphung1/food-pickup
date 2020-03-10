@@ -16,7 +16,7 @@ const orderConfirmed = function (order_id) {
 const timeConfirmed = function (time_est) {
   twilioClient.messages
   .create({
-     body: `Your order has been confirmed. It will be ready in approximately ${time_est}.`,
+     body: `Your order has been confirmed. It will be ready in approximately ${time_est} minutes.`,
      from: '+16042621059',
      to: '+17809918297'
    })

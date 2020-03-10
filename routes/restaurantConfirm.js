@@ -13,5 +13,9 @@ router.get('/restaurant_confirm/:id', (req, res) => {
   });
 });
 
+router.post('/update', (req, res) => {
+  timeConfirmed(req.body.time_est);
+});
+
 
 module.exports = router;

@@ -1,28 +1,46 @@
-// router.post('/confirmed_time_est', (req, res) => {
-//   timeConfirmed(req.body.time_est);
+// $(function() {
+
+//   $('#confirm_time_est_btn').click(function () {
+//     event.preventDefault();
+//     console.log($('#time_est').val())
+
+//     // timeConfirmed($('#time_est').val());
+//   });
 // });
 
 
-// $(() => {
-//   $.ajax({
-//     method: "GET",
-//     url: "/a"
-//   }).done((users) => {
-//     for(user of users) {
-//       $("<div>").text(user.name).appendTo($("body"));
-//     }
-//   });;
+
+// $(function() {
+//   const enteredTime = function() {
+//     $('#confirm_time_est_btn').submit(function () {
+//       event.preventDefault();
+//       console.log($('#time_est').value())
+//       let time_est = $('#time_est').value()
+//       $.ajax({
+//         type: "POST",
+//         url: '/update',
+//         data: { time_est: time_est}
+//       })
+//       .done(function() {
+//         console.log(data);
+//     })
+//     });
+//   };
+
+//   enteredTime();
 // });
 
-const { timeConfirmed } = require('./twilio_msgs');
 
-$(function() {
-  const timeConfirmed = function() {
-    event.preventDefault();
-    $('#confirm_time_est_btn').click(function () {
-      console.log($(this))
-    });
-  };
 
-  timeConfirmed();
-});
+// // $(function() {
+// //   event.preventDefault();
+// //   $('#confirm_time_est_btn').click(function () {
+// //     $.ajax({
+// //       type: "POST",
+// //       data: $(this).serialize()
+// //     })
+// //     .done(function() {
+// //     console.log($('#time_est').val())
+// //     })
+// //   });
+// // });
