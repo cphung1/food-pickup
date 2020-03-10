@@ -15,6 +15,12 @@ main {
     color: #586770;
   }
 
+  confirmed {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2.5em;
+  }
+
   table {
     width: 100%;
     margin-bottom: 1rem;
@@ -37,6 +43,8 @@ main {
   }
 
   form {
+    display: flex;
+    justify-content: flex-end;
     input {
       border-radius: $bs-border-radius;
       margin-left: 1em;
