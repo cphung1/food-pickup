@@ -95,6 +95,14 @@ cart {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    form {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      input {
+        display: none;
+      }
+    }
 
   }
 

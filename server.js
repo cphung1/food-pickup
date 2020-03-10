@@ -40,6 +40,7 @@ const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const ordersConfirmed = require("./routes/ordersConfirmed");
 const restaurantConfirm = require("./routes/restaurantConfirm")
+const deleteItems = require("./routes/deleteRoute")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -48,6 +49,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Note: mount other resources here, using the same pattern above
 app.use(ordersConfirmed);
 app.use(restaurantConfirm);
+app.use(deleteItems);
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -118,10 +120,12 @@ app.post('/', (req, res) => {
         totalStuff.total = Math.round((subtotal + subtotal*0.12)*100) / 100;
         res.render('index', { items, checkoutStuff, totalStuff });
       });
+
     });
   });
 
 });
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
