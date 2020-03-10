@@ -147,7 +147,7 @@ app.post('/delete', (req, res) => {
       }
     });
   });
-  // res.redirect("/")
+  res.redirect("/")
 });
 
 app.listen(PORT, () => {
