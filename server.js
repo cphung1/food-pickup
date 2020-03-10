@@ -105,7 +105,6 @@ app.post('/', (req, res) => {
       }
 
       checkoutItems(order_id, (err, checkoutStuff) => {
-
         if (err) {
           return res.render('error', { err });
         }
@@ -120,7 +119,6 @@ app.post('/', (req, res) => {
       });
     });
   });
-
 });
 
 

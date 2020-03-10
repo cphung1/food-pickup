@@ -34,7 +34,6 @@ const checkoutItems = (orderId, cb) => {
 
 
 const newOrder = (is_empty, cb) => {
-
   if (is_empty) {
     client.query(`INSERT INTO orders (user_id, is_accepted, is_done, time_est)
     VALUES (1, false, false, 0);`)
