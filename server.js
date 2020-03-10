@@ -41,6 +41,7 @@ const widgetsRoutes = require("./routes/widgets");
 const ordersConfirmed = require("./routes/ordersConfirmed");
 const restaurantConfirm = require("./routes/restaurantConfirm")
 const login = require("./routes/login")
+const deleteItems = require("./routes/deleteRoute")
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -50,6 +51,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use(ordersConfirmed);
 app.use(restaurantConfirm);
 app.use(login);
+app.use(deleteItems);
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -83,8 +85,6 @@ app.get("/", (req, res) => {
 
 app.post('/', (req, res) => {
 
-  console.log(req.body);
-
   const templateVars = {
     item_id: req.body.item_id,
     quantity: req.body.quant,
@@ -107,7 +107,6 @@ app.post('/', (req, res) => {
       }
 
       checkoutItems(order_id, (err, checkoutStuff) => {
-
         if (err) {
           return res.render('error', { err });
         }
@@ -122,8 +121,8 @@ app.post('/', (req, res) => {
       });
     });
   });
-
 });
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

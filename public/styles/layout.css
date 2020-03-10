@@ -244,6 +244,16 @@ cart article {
   justify-content: space-between;
 }
 
+cart article form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+cart article form input {
+  display: none;
+}
+
 cart article p {
   margin: 0%;
 }

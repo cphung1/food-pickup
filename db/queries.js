@@ -34,7 +34,6 @@ const checkoutItems = (orderId, cb) => {
 
 
 const newOrder = (is_empty, cb) => {
-
   if (is_empty) {
     client.query(`INSERT INTO orders (user_id, is_accepted, is_done, time_est)
     VALUES (1, false, false, 0);`)
@@ -61,14 +60,15 @@ const newOrder = (is_empty, cb) => {
 }
 
 const addItem = (order_id, item_id, quantity, spec_req) => {
-
-  console.log("stuff", order_id);
-  console.log("item", item_id);
-  console.log("quantity", quantity);
-  console.log("specrec", spec_req);
-
   client.query(`INSERT INTO order_items (order_id, item_id, quantity, special_requests)
   VALUES ($1, $2, $3, $4);`, [order_id, item_id, quantity, spec_req]);
 }
 
-module.exports = { browse, checkoutItems, newOrder, addItem };
+const deleteItem = (order_id, item_id) => {
+  client.query(`DELETE FROM order_items
+  WHERE order_id = $1 AND item_id = $2;`, [order_id, item_id])
+};
+
+
+
+module.exports = { browse, checkoutItems, newOrder, addItem, deleteItem };
