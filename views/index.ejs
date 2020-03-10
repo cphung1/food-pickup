@@ -97,15 +97,10 @@
                   <itemName><%= check.name %></itemName>
                 </item>
                 <price>
-<<<<<<< HEAD
-                  <p>$<%= check.price %></p>
-                  <i class="fas fa-times fa-xs"></i>
-=======
                   <p><%= check.price %></p>
                   <button id="delete_item">
                     <i class="fas fa-times fa-xs"></i>
                   </button>
->>>>>>> 9945c37e5a6780f859ea0537a7dfc7053b5f0019
                 </price>
                 <input name="order_id" type="number" value=<%= check.order_id %> >
                 <input name="item_id" type="number" value=<%= check.item_id %> >
@@ -115,18 +110,6 @@
             <totals>
               <table style="width:100%">
                 <tr>
-<<<<<<< HEAD
-                  <th>Subtotal</th>
-                  <td>$<%= totalStuff.subtotal %></td>
-                </tr>
-                <tr>
-                  <th>Tax</th>
-                  <td>$<%= totalStuff.tax %></td>
-                </tr>
-                <tr>
-                  <th>Total</th>
-                  <td>$<%= totalStuff.total   %></td>
-=======
                   <th id="subtotal">Subtotal</th>
                   <td><%= totalStuff.subtotal %></td>
                 </tr>
@@ -137,7 +120,6 @@
                 <tr>
                   <th id="total">Total</th>
                   <td><%= totalStuff.total %></td>
->>>>>>> 9945c37e5a6780f859ea0537a7dfc7053b5f0019
                 </tr>
               </table>
             <!-- </form action="/delete" method="POST"> -->
