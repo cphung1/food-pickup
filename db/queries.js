@@ -26,10 +26,11 @@ const checkoutItems = (orderId, cb) => {
   JOIN items on items.id = item_id
   WHERE orders.id = ${orderId};`)
     .then(data => {
+      console.log(data.rows)
       cb(null, data.rows);
     })
     .catch(err => cb(err));
-}
+};
 
 
 const newOrder = (is_empty, cb) => {

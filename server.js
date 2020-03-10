@@ -85,8 +85,8 @@ app.post('/', (req, res) => {
 
   const templateVars = {
     item_id: req.body.item_id,
+    quantity: req.body.quant,
     special_req: req.body.specialRequests,
-    quantity: req.body.quant
   }
 
   newOrder( is_empty, (err, order) => {
@@ -119,7 +119,6 @@ app.post('/', (req, res) => {
         res.render('index', { items, checkoutStuff, totalStuff });
       });
     });
-
   });
 
 });
