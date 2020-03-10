@@ -19,7 +19,7 @@ const browse = (cb) => {
     .catch(err => cb(err));
 };
 
-const checkoutItems = (cb, id) => {
+const checkoutItems = (cb) => {
   client.query(`SELECT * from order_items
   JOIN orders ON order_id = orders.id
   JOIN items on item_id = items.id
@@ -61,7 +61,7 @@ const newOrder = (is_empty, cb) => {
 
 const addItem = (order_id, item_id, quantity, spec_req) => {
   client.query(`INSERT INTO order_items (order_id, item_id, quantity, special_requests)
-  VALUES (${order_id}, ${item_id}, ${quantity}, ${spec_req});`);
+  VALUES ($1, $2, $3, $4);`, [order_id, item_id, quantity, spec_req]);
 }
 
 module.exports = { browse, checkoutItems, newOrder, addItem };

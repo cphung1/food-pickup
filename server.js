@@ -75,8 +75,8 @@ let is_empty = true;
 app.post('/', (req, res) => {
   const templateVars = {
     item_id: req.body.item_id,
+    quantity: req.body.quant,
     special_req: req.body.specialRequests,
-    quantity: req.body.quant
   }
 
   newOrder( is_empty, (err, order) => {
@@ -86,7 +86,8 @@ app.post('/', (req, res) => {
     }
     let order_id = order[0].id;
 
-    addItem(order_id, templateVars.item_id, templateVars.quantity, templateVars.special_req);
+    addItem(order_id, templateVars.item_id, templateVars.quantity, templateVars.special_req)
+
   });
 
 });

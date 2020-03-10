@@ -3,4 +3,36 @@
 main {
   margin-left: 12vw;
   margin-right: 12vw;
+
+  h3 {
+    display: flex;
+    justify-content: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: #B7D9EB;
+    margin-top: 0.5em;
+    border-radius: 0.25em;
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+
+    thead {
+      border-bottom: 1px solid $secondary-color;
+    }
+
+    tfoot {
+      tr {
+        &:first-child {
+          border-top: 1px solid $secondary-color;
+        }
+      }
+      th {
+        text-align: center;
+      }
+    }
+  }
+
 }
