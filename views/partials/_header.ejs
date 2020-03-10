@@ -2,14 +2,18 @@
 <nav>
   <top_bar>
     <login_form>
-    <label>Username</label>
-    <input placeholder="Username">
-    <label>Password</label>
-    <input placeholder="Password">
-    <button>Login</button>
+    <form action="/login" method="POST">
+      <label>Email</label>
+      <input type="email" name="email"/>
+      <label>Password</label>
+      <input type="password" name="password"/>
+      <input class="login_button" type="button" value="login"/>
+    </form>
   </login_form>
   </top_bar>
   <header>
     <h1>Lighthouse Cafe</h1>
   </header>
 </nav>
+
+

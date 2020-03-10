@@ -15,6 +15,7 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/quantity_incrementor.js"></script>
+    <script type="text/javascript" src="/scripts/menuScripts.js"></script>
 
     <!-- External Js -->
     <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" data-auto-a11y="true"></script>
@@ -28,9 +29,9 @@
       <!-- Side Categories Nav Bar -->
       <side_categories>
       <ul>
-        <li>popular</li>
-        <li>food</li>
-        <li>drinks</li>
+        <a href="/"><li>popular</li></a>
+        <a href="/"><li>food</li></a>
+        <a href="/"><li>drinks</li></a>
       </ul>
       </side_categories>
 
@@ -95,7 +96,7 @@
                   <itemName><%= check.name %></itemName>
                 </item>
                 <price>
-                  <p><%= check.price %></p>
+                  <p>$<%= check.price %></p>
                   <i class="fas fa-times fa-xs"></i>
                 </price>
               </article>
@@ -115,15 +116,15 @@
               <table style="width:100%">
                 <tr>
                   <th>Subtotal</th>
-                  <td><%= totalStuff.subtotal %></td>
+                  <td>$<%= totalStuff.subtotal %></td>
                 </tr>
                 <tr>
                   <th>Tax</th>
-                  <td><%= totalStuff.tax %></td>
+                  <td>$<%= totalStuff.tax %></td>
                 </tr>
                 <tr>
                   <th>Total</th>
-                  <td><%= totalStuff.total %></td>
+                  <td>$<%= totalStuff.total   %></td>
                 </tr>
               </table>
               <button type="button" class="btn btn-outline-info">Place Order</button>
