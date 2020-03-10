@@ -10,28 +10,6 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 
-//----------------------------- TWILIO SKELETON ------------------------------//
-// const messagingResponse = require('twilio').twiml.MessagingResponse;
-// const accountSid = process.env.TWILIO_ACCOUNT_SID;
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-// const twilioClient = require('twilio')(accountSid, authToken);
-
-// twilioClient.messages.create({
-//   to: process.env.MY_PHONE_NUMBER,
-//   from: '+1234567890',
-//   body: 'hi'
-// })
-// .then((message) => console.log("heres the message", message.sid));
-
-// app.post('/sms', (req, res) => {
-//   const twiml = new MessagingResponse();
-
-//   twiml.message("working ?!");
-
-//   res.writeHead(200, {'Content-Type': 'text/xml'});
-//   res.end(twiml.toString());
-// });
-
 
 // PG database client/connection setup
 const { Pool } = require('pg');
@@ -63,7 +41,6 @@ const widgetsRoutes = require("./routes/widgets");
 const ordersConfirmed = require("./routes/ordersConfirmed");
 const restaurantConfirm = require("./routes/restaurantConfirm")
 const login = require("./routes/login")
-const deleteItems = require("./routes/deleteRoute")
 // const deleteItems = require("./routes/deleteRoute")
 
 // Mount all resource routes
@@ -74,13 +51,12 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use(ordersConfirmed);
 app.use(restaurantConfirm);
 app.use(login);
-app.use(deleteItems);
 // app.use(deleteItems);
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-let order_id = 55;
+let order_id = 0;
 let is_empty = true;
 let totalStuff = {
   subtotal: 0,
@@ -102,8 +78,6 @@ app.get("/", (req, res) => {
     });
   });
 });
-
-
 
 app.post('/', (req, res) => {
 
@@ -176,6 +150,13 @@ app.post('/delete', (req, res) => {
   res.redirect("/")
 });
 
+const { orderConfirmed } = require('./routes/twilio_msgs')
+app.post('/order_placed', (req, res) => {
+  orderConfirmed(order_id);
+  res.redirect(`/confirmed/${order_id}`)
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+

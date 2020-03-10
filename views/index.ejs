@@ -123,7 +123,10 @@
                   <td id="total"><%= totalStuff.total %></td>
                 </tr>
               </table>
-              <button type="button" class="btn btn-outline-info">Place Order</button>
+              <form method="POST" action="/order_placed">
+                <input id="place_order" type="text">
+                <button type="submit" class="btn btn-outline-info">Place Order</button>
+              </form>
             </totals>
 
           </cart>

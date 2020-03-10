@@ -14,6 +14,7 @@
 
   <!-- APP JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/confirmed_order"></script>
 
   <!-- External JS -->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
@@ -22,7 +23,7 @@
   <%- include('./partials/_header') %>
 
   <main>
-    <h3>Order #100</h2>
+    <h3>Order #<%= order_id %></h2>
 
     <h4>Ordered Items:</h4>
     <orderd_items>
@@ -67,8 +68,8 @@
 
     <form class="form-inline">
       <label>Estimated Time: </label>
-      <input type="number" pattern="[0-9]"placeholder="minutes">
-      <button type="button" class="btn btn-info">Confirm</button>
+      <input id="time_est" name="time_est" type="number" pattern="[0-9]"placeholder="minutes">
+      <button id="confirm_time_est_btn" type="submit" class="btn btn-info">Confirm</button>
     </form>
 
 
