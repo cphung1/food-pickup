@@ -52,27 +52,37 @@ app.use(restaurantConfirm);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+let order_id = 55;
+let is_empty = true;
+let totalStuff = {
+  subtotal: 0,
+  tax: 0,
+  total: 0
+};
+
 app.get("/", (req, res) => {
 
-  browse((err, items) => {
-    if (err) {
-      return res.render('error', { err });
-    }
 
-    checkoutItems((err, checkoutStuff) => {
+    browse((err, items) => {
       if (err) {
         return res.render('error', { err });
       }
-      res.render('index', { items, checkoutStuff });
-    });
 
-    // res.render('index', { items });
-  });
+      checkoutItems(order_id, (err, checkoutStuff) => {
+        if (err) {
+          return res.render('error', { err });
+        }
+        res.render('index', { items, checkoutStuff, totalStuff });
+      });
+    });
 });
 
-let is_empty = true;
+
 
 app.post('/', (req, res) => {
+
+  console.log(req.body);
+
   const templateVars = {
     item_id: req.body.item_id,
     special_req: req.body.specialRequests,
@@ -84,9 +94,32 @@ app.post('/', (req, res) => {
     if (err) {
       return res.render('error', { err });
     }
-    let order_id = order[0].id;
+    order_id = order[0].id;
 
     addItem(order_id, templateVars.item_id, templateVars.quantity, templateVars.special_req);
+
+
+    browse((err, items) => {
+      if (err) {
+        return res.render('error', { err });
+      }
+
+      checkoutItems(order_id, (err, checkoutStuff) => {
+
+        if (err) {
+          return res.render('error', { err });
+        }
+        let subtotal = 0; let tax = 0; let grandTotal = 0;
+        for (let i = 0; i < checkoutStuff.length; i++) {
+          subtotal+= (checkoutStuff[i].price * checkoutStuff[i].quantity);
+        }
+        totalStuff.subtotal = Math.round(subtotal*100) / 100;
+        totalStuff.tax = Math.round(subtotal*0.12*100) / 100;
+        totalStuff.total = Math.round((subtotal + subtotal*0.12)*100) / 100;
+        res.render('index', { items, checkoutStuff, totalStuff });
+      });
+    });
+
   });
 
 });
@@ -94,4 +127,3 @@ app.post('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
-

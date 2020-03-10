@@ -45,7 +45,6 @@
           </button>
           <p class="text-left"><%= item.description %></p>
         </article>
-
         <!-- Modal -->
         <div class="modal fade" id="modal-<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -102,7 +101,7 @@
               </article>
               <% } %>
 
-            <article>
+            <!-- <article>
               <item>
                 <number>1</number>
                 <itemName>Latte</itemName>
@@ -111,20 +110,20 @@
                 <p>$6.50</p>
                 <i class="fas fa-times fa-xs"></i>
               </price>
-            </article>
+            </article> -->
             <totals>
               <table style="width:100%">
                 <tr>
                   <th>Subtotal</th>
-                  <td>$6.50</td>
+                  <td><%= totalStuff.subtotal %></td>
                 </tr>
                 <tr>
                   <th>Tax</th>
-                  <td>$0.33</td>
+                  <td><%= totalStuff.tax %></td>
                 </tr>
                 <tr>
                   <th>Total</th>
-                  <td>$6.83</td>
+                  <td><%= totalStuff.total %></td>
                 </tr>
               </table>
               <button type="button" class="btn btn-outline-info">Place Order</button>
@@ -142,3 +141,4 @@
 
   </body>
 </html>
+
