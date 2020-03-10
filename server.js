@@ -10,6 +10,28 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 
+//----------------------------- TWILIO SKELETON ------------------------------//
+// const messagingResponse = require('twilio').twiml.MessagingResponse;
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const twilioClient = require('twilio')(accountSid, authToken);
+
+// twilioClient.messages.create({
+//   to: process.env.MY_PHONE_NUMBER,
+//   from: '+1234567890',
+//   body: 'hi'
+// })
+// .then((message) => console.log("heres the message", message.sid));
+
+// app.post('/sms', (req, res) => {
+//   const twiml = new MessagingResponse();
+
+//   twiml.message("working ?!");
+
+//   res.writeHead(200, {'Content-Type': 'text/xml'});
+//   res.end(twiml.toString());
+// });
+
 
 // PG database client/connection setup
 const { Pool } = require('pg');
