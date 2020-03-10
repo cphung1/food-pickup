@@ -69,11 +69,6 @@ nav header h1 {
   text-transform: capitalize;
 }
 
-.modal-body img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
 .modal-body form {
   margin-top: 4em;
 }
@@ -83,31 +78,28 @@ nav header h1 {
   font-size: smaller;
 }
 
-.modal-body quantity {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 1em;
-  transform: scale(1.2);
-}
-
 .modal-body quantity input {
   border: none;
   width: 30px;
   text-align: center;
 }
 
-.modal-body quantity button {
+.modal-body quantity .decrease {
   border: 1px solid #dbdbe6;
   color: #07a7c4;
 }
 
-.modal-body quantity button:focus {
+.modal-body quantity .decrease:focus {
   outline: none;
 }
 
-.modal-body quantity form {
-  max-width: 85%;
+.modal-body quantity .increase {
+  border: 1px solid #dbdbe6;
+  color: #07a7c4;
+}
+
+.modal-body quantity .increase:focus {
+  outline: none;
 }
 
 .qty {
