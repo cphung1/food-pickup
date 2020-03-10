@@ -63,7 +63,7 @@ const widgetsRoutes = require("./routes/widgets");
 const ordersConfirmed = require("./routes/ordersConfirmed");
 const restaurantConfirm = require("./routes/restaurantConfirm")
 const login = require("./routes/login")
-const deleteItems = require("./routes/deleteRoute")
+// const deleteItems = require("./routes/deleteRoute")
 // const deleteItems = require("./routes/deleteRoute")
 
 // Mount all resource routes
@@ -74,7 +74,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use(ordersConfirmed);
 app.use(restaurantConfirm);
 app.use(login);
-app.use(deleteItems);
+// app.use(deleteItems);
 // app.use(deleteItems);
 
 // Home page
@@ -162,9 +162,9 @@ app.post('/delete', (req, res) => {
         totalStuff.total = 0;
         res.render('index', { items, checkoutStuff, totalStuff });
       }else {
-        let subtotal = totalStuff.subtotal;
+        let subtotal = 0;
         for (let i = 0; i < checkoutStuff.length; i++) {
-          subtotal-= (checkoutStuff[i].price * checkoutStuff[i].quantity);
+          subtotal+= (checkoutStuff[i].price * checkoutStuff[i].quantity);
         }
         totalStuff.subtotal = Math.round(subtotal*100) / 100;
         totalStuff.tax = Math.round(subtotal*0.12*100) / 100;
