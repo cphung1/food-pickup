@@ -40,6 +40,7 @@ const ordersConfirmed = require("./routes/ordersConfirmed");
 const restaurantConfirm = require("./routes/restaurantConfirm")
 const login = require("./routes/login")
 const apiData = require("./routes/apis")
+const restaurantRender = require("./routes/restConfirmRender")
 // const deleteItems = require("./routes/deleteRoute")
 
 
@@ -47,11 +48,11 @@ const apiData = require("./routes/apis")
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-app.use(ordersConfirmed);
-app.use("/restaurant", restaurantConfirm);
 app.use(login);
 app.use("/apis", apiData);
-
+app.use(ordersConfirmed);
+app.use("/restaurant", restaurantConfirm);
+app.use(restaurantRender)
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
@@ -111,17 +112,7 @@ app.post('/delete', (req, res) => {
   res.redirect("/")
 });
 
-const { orderConfirmed } = require('./routes/twilio_msgs')
-
-app.get('/restaurant_confirm/:id', (req, res) => {
-  let order_id = req.params.id
-  checkoutItems(order_id, (err, checkoutStuff) => {
-    if (err) {
-      return res.render('error', { err });
-    }
-    res.render('restaurant', { checkoutStuff, order_id});
-  });
-});
+// const { orderConfirmed } = require('./routes/twilio_msgs')
 
 
 app.post('/order_placed', (req, res) => {
