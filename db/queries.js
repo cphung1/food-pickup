@@ -11,6 +11,7 @@ const options = {
 const client = new Client(options);
 client.connect();
 
+//This generates a list of all menu items
 const browse = (cb) => {
   client.query('SELECT * FROM items;')
     .then(data => {
@@ -19,6 +20,7 @@ const browse = (cb) => {
     .catch(err => cb(err));
 };
 
+// This lists all the items that you have ready for checkout
 const checkoutItems = (orderId, cb) => {
 
   client.query(`SELECT * from order_items
@@ -32,7 +34,7 @@ const checkoutItems = (orderId, cb) => {
     .catch(err => cb(err));
 };
 
-
+// This creates a new order when you add 1 or more items into the cart
 const newOrder = (is_empty, cb) => {
   if (is_empty) {
     client.query(`INSERT INTO orders (user_id, is_accepted, is_done, time_est)
@@ -56,14 +58,15 @@ const newOrder = (is_empty, cb) => {
       cb(null,data.rows);
     })
   }
-
 }
 
+//this adds each individual items to an order. Updates everytime you add an item to the cart
 const addItem = (order_id, item_id, quantity, spec_req) => {
   client.query(`INSERT INTO order_items (order_id, item_id, quantity, special_requests)
   VALUES ($1, $2, $3, $4);`, [order_id, item_id, quantity, spec_req]);
 }
 
+//this deletes an individual item from the cart
 const deleteItem = (order_id, item_id) => {
   client.query(`DELETE FROM order_items
   WHERE order_id = $1 AND item_id = $2;`, [order_id, item_id])
