@@ -74,10 +74,11 @@
       <button id="confirm_time_est_btn" type="submit" class="btn btn-info">Confirm</button>
     </form>
 
-    <done>
+    <form method="POST" action="/completed">
       <p>When the order is complete please press the completed button.</p>
       <button id="order_done" type="submit" class="btn btn-danger">Order Completed</button>
-    </done
+      <input name="order_id" value=<%= order_id %>>
+    </form>
 
 
 

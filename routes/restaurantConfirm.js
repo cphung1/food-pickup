@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const { checkoutItems, is_accepted } = require('../db/queries');
+const { checkoutItems, is_accepted, is_completed } = require('../db/queries');
 const { timeConfirmed } = require('./twilio_msgs');
 
 router.get('/restaurant_confirm/:id', (req, res) => {
@@ -19,5 +19,11 @@ router.post('/restaurant_confirm/:id', (req, res) => {
 
 });
 
+router.post('/completed', (req, res) => {
+  console.log(req.body.order_id)
+  is_completed(req.body.order_id, true);
+  console.log(req.body.order_id)
+  res.redirect(`/restaurant_confirm/${req.body.order_id}`)
+});
 
 module.exports = router;
