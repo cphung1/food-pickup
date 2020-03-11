@@ -1,3 +1,15 @@
+$(() => {
+  $.ajax({
+    method: "POST",
+    url: "/api/confirmed_order/:id"
+  }).done((users) => {
+    for(user of users) {
+      $("<div>").text(user.name).appendTo($("body"));
+    }
+  });;
+});
+
+
 // $(function() {
 
 //   $('#confirm_time_est_btn').click(function () {
