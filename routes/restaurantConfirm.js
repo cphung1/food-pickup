@@ -16,7 +16,7 @@ router.get('/restaurant_confirm/:id', (req, res) => {
 router.post('/restaurant_confirm/:id', (req, res) => {
   timeConfirmed(req.body.time_est);
   is_accepted(req.params.id, true, req.body.time_est);
-
+  res.redirect(`/restaurant_confirm/${req.params.id}`)
 });
 
 router.post('/completed', (req, res) => {

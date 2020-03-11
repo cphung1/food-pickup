@@ -64,22 +64,23 @@
         </tfoot>
       </table>
     </orderd_items>
-    <confirmed>
-      <p>Confirm the order by entering the estimated time it will take to complete it.</p>
-    </confirmed>
+    <div>
+      <confirmed>
+        <p>Confirm the order by entering the estimated time it will take to complete it.</p>
+      </confirmed>
 
-    <form class="form-inline" method="POST" action="/restaurant_confirm/<%= order_id %>">
-      <label>Estimated Time: </label>
-      <input id="time_est" name="time_est" type="number" pattern="[0-9]"placeholder="minutes">
-      <button id="confirm_time_est_btn" type="submit" class="btn btn-info">Confirm</button>
-    </form>
+      <form id="time" method="POST" action="/restaurant_confirm/<%= order_id %>">
+        <label>Estimated Time: </label>
+        <input id="time_est" name="time_est" type="number" pattern="[0-9]"placeholder="minutes">
+        <button id="confirm_time_est_btn" type="submit" class="btn btn-info">Confirm</button>
+      </form>
 
-    <form method="POST" action="/completed">
-      <p>When the order is complete please press the completed button.</p>
-      <button id="order_done" type="submit" class="btn btn-danger">Order Completed</button>
-      <input name="order_id" value=<%= order_id %>>
-    </form>
-
+      <form id="completed" method="POST" action="/completed">
+        <p>When the order is complete please press the completed button.</p>
+        Order #<input name="order_id" value=<%= order_id %>>
+        <button id="order_done" type="submit" class="btn btn-danger">Order Completed</button>
+      </form>
+    </div>
 
 
 
