@@ -36,10 +36,10 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
-const ordersConfirmed = require("./routes/ordersConfirmed");
-const restaurantConfirm = require("./routes/restaurantConfirm")
 const login = require("./routes/login")
 const apiData = require("./routes/apis")
+const ordersConfirmedRender = require("./routes/ordersConfirmedRender");
+const restaurantConfirm = require("./routes/restaurantConfirm")
 const restaurantRender = require("./routes/restConfirmRender")
 // const deleteItems = require("./routes/deleteRoute")
 
@@ -50,7 +50,7 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use(login);
 app.use("/apis", apiData);
-app.use(ordersConfirmed);
+app.use(ordersConfirmedRender);
 app.use("/restaurant", restaurantConfirm);
 app.use(restaurantRender)
 // Home page

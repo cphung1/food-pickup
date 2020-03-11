@@ -1,9 +1,8 @@
 const express = require('express');
 const router  = express.Router();
-const { checkoutItems} = require('../db/queries');
+const { checkoutItems } = require('../db/queries');
 
-
-router.get('/restaurant_confirm/:id', (req, res) => {
+router.get('/confirmed/:id', (req, res) => {
   let order_id = req.params.id;
   let totals = { subtotal: 0, tax: 0, total: 0 };
   checkoutItems(order_id, (err, checkoutStuff) => {
@@ -18,8 +17,10 @@ router.get('/restaurant_confirm/:id', (req, res) => {
     totals.tax = Math.round(subtotal * 0.12 * 100) / 100;
     totals.total = Math.round((subtotal + subtotal * 0.12) * 100) / 100;
 
-    res.render('restaurant', { checkoutStuff, order_id, totals});
+    res.render('confirmed', { checkoutStuff, order_id, totals });
   });
 });
+
+
 
 module.exports = router;
