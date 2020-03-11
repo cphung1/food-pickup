@@ -63,6 +63,11 @@ confirmed {
     margin-top: 5em;
   }
 }
+
+#order_id {
+  display: none;
+}
+
 #completed {
   p {
     margin-top: 3em;
@@ -74,5 +79,13 @@ confirmed {
     margin-left: 0;
     padding: 0;
     width: 30px;
+  }
+}
+
+.disable {
+  pointer-events: none;
+  input {
+    background-color: #bfbfbf;
+    opacity: 25%
   }
 }

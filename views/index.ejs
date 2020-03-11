@@ -89,49 +89,6 @@
         <header>
           <h4>Checkout</h4>
           <cart>
-<<<<<<< HEAD
-
-          <% for (const check of checkoutStuff) { %>
-              <article>
-                <form action="/delete" method="POST">
-                <item>
-                  <number><%= check.quantity %></number>
-                  <itemName><%= check.name %></itemName>
-                </item>
-                <price>
-                  <p><%= check.price %></p>
-                  <button id="delete_item">
-                    <i class="fas fa-times fa-xs"></i>
-                  </button>
-                </price>
-                <input name="order_id" type="number" value=<%= check.order_id %> >
-                <input name="item_id" type="number" value=<%= check.item_id %> >
-              </form action="/delete" method="POST">
-              </article>
-              <% } %>
-            <totals>
-              <table style="width:100%">
-                <tr>
-                  <th>Subtotal</th>
-                  <td id="subtotal"><%= totalStuff.subtotal %></td>
-                </tr>
-                <tr>
-                  <th>Tax</th>
-                  <td id="tax"><%= totalStuff.tax %></td>
-                </tr>
-                <tr>
-                  <th>Total</th>
-                  <td id="total"><%= totalStuff.total %></td>
-                </tr>
-              </table>
-              <form method="POST" action="/order_placed">
-                <input id="place_order" type="text">
-                <button type="submit" class="btn btn-outline-info">Place Order</button>
-              </form>
-            </totals>
-
-=======
->>>>>>> dcedf6d54b387f002fd210bf08758f99de230cf2
           </cart>
           <totals class="totals">
             <table style="width:100%">
