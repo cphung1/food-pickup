@@ -82,10 +82,18 @@ confirmed {
   }
 }
 
-.disable {
+.disable_confirm {
   pointer-events: none;
   input {
     background-color: #bfbfbf;
     opacity: 25%
   }
+  button {
+    opacity: 25%;
+  }
+}
+
+.disable_complete {
+  pointer-events: none;
+  opacity: 25%;
 }
