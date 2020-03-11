@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const { checkoutItems } = require('../db/queries');
+const { checkoutItems, is_accepted } = require('../db/queries');
 const { timeConfirmed } = require('./twilio_msgs');
 
 router.get('/restaurant_confirm/:id', (req, res) => {
@@ -13,8 +13,10 @@ router.get('/restaurant_confirm/:id', (req, res) => {
   });
 });
 
-router.post('/update', (req, res) => {
+router.post('/restaurant_confirm/:id', (req, res) => {
   timeConfirmed(req.body.time_est);
+  is_accepted(req.params.id, true, req.body.time_est);
+  res.redirect('/restaurant_confirm/req.params.id')
 });
 
 

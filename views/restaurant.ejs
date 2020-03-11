@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Order Confirmed</title>
 
+
   <!-- CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" >
@@ -15,9 +16,6 @@
   <!-- APP JS -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/confirmed_order.js"></script>
-
-
-
 
   <!-- External JS -->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
@@ -63,14 +61,14 @@
             <th colspan="3">Total :</th>
             <td>$6.83</td>
           </tr>
-         </tfoot>
+        </tfoot>
       </table>
     </orderd_items>
     <confirmed>
       <p>Confirm the order by entering the estimated time it will take to complete it.</p>
     </confirmed>
 
-    <form class="form-inline" method="POST" action="/update">
+    <form class="form-inline" method="POST" action="/restaurant_confirm/<%= order_id %>">
       <label>Estimated Time: </label>
       <input id="time_est" name="time_est" type="number" pattern="[0-9]"placeholder="minutes">
       <button id="confirm_time_est_btn" type="submit" class="btn btn-info">Confirm</button>
