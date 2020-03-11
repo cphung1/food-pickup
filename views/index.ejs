@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <!-- APP JS -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
     <script type="text/javascript" src="/scripts/quantity_incrementor.js"></script>
     <script type="text/javascript" src="/scripts/menuScripts.js"></script>
@@ -60,7 +60,7 @@
               <div class="modal-body">
                 <div class="modal-description"><%= item.description %></div>
                 <quantity>
-                  <form action="/" method="POST">
+                  <form id="submitStuff-<%= item.id %>">
                     <textarea name="item_id" type="text" id="hideen"><%= item.id %> </textarea>
                     <label for="exampleFormControlTextarea1">List any special requests you may have (ie. allergies, extra spicy, etc)</label>
                     <textarea name="specialRequests" type="text" class="form-control" id="formTextArea-<%= item.id %>" rows="3"></textarea>
@@ -71,7 +71,7 @@
                     <button type="button" class="increase">
                       <i class="fas fa-plus fa-xs"></i>
                     </button>
-                    <button type="submit" class="btn btn-info" >Add to order</button>
+                    <button class="addItemButton" type="button" class="btn btn-info" >Add to order</button>
                   </form>
                 </quantity>
               </div>
@@ -89,44 +89,24 @@
         <header>
           <h4>Checkout</h4>
           <cart>
-
-          <% for (const check of checkoutStuff) { %>
-              <article>
-                <form action="/delete" method="POST">
-                <item>
-                  <number><%= check.quantity %></number>
-                  <itemName><%= check.name %></itemName>
-                </item>
-                <price>
-                  <p><%= check.price %></p>
-                  <button id="delete_item">
-                    <i class="fas fa-times fa-xs"></i>
-                  </button>
-                </price>
-                <input name="order_id" type="number" value=<%= check.order_id %> >
-                <input name="item_id" type="number" value=<%= check.item_id %> >
-              </form action="/delete" method="POST">
-              </article>
-              <% } %>
-            <totals>
-              <table style="width:100%">
-                <tr>
-                  <th>Subtotal</th>
-                  <td id="subtotal"><%= totalStuff.subtotal %></td>
-                </tr>
-                <tr>
-                  <th>Tax</th>
-                  <td id="tax"><%= totalStuff.tax %></td>
-                </tr>
-                <tr>
-                  <th>Total</th>
-                  <td id="total"><%= totalStuff.total %></td>
-                </tr>
-              </table>
-              <button type="button" class="btn btn-outline-info">Place Order</button>
-            </totals>
-
           </cart>
+          <totals class="totals">
+            <table style="width:100%">
+              <tr>
+                <th>Subtotal</th>
+                <td id="subtotal">0</td>
+              </tr>
+              <tr>
+                <th>Tax</th>
+                <td id="tax">0</td>
+              </tr>
+              <tr>
+                <th>Total</th>
+                <td id="total">0</td>
+              </tr>
+            </table>
+            <button type="button" class="btn btn-outline-info">Place Order</button>
+          </totals>
         </header>
       </checkout>
 

@@ -10,29 +10,6 @@ const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
 
-//----------------------------- TWILIO SKELETON ------------------------------//
-// const messagingResponse = require('twilio').twiml.MessagingResponse;
-// const accountSid = process.env.TWILIO_ACCOUNT_SID;
-// const authToken = process.env.TWILIO_AUTH_TOKEN;
-// const twilioClient = require('twilio')(accountSid, authToken);
-
-// twilioClient.messages.create({
-//   to: process.env.MY_PHONE_NUMBER,
-//   from: '+1234567890',
-//   body: 'hi'
-// })
-// .then((message) => console.log("heres the message", message.sid));
-
-// app.post('/sms', (req, res) => {
-//   const twiml = new MessagingResponse();
-
-//   twiml.message("working ?!");
-
-//   res.writeHead(200, {'Content-Type': 'text/xml'});
-//   res.end(twiml.toString());
-// });
-
-
 // PG database client/connection setup
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
@@ -45,7 +22,6 @@ const { browse, checkoutItems, newOrder, addItem, deleteItem } = require('./db/q
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
-
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/styles", sass({
@@ -63,6 +39,7 @@ const widgetsRoutes = require("./routes/widgets");
 const ordersConfirmed = require("./routes/ordersConfirmed");
 const restaurantConfirm = require("./routes/restaurantConfirm")
 const login = require("./routes/login")
+const apiData = require("./routes/apis")
 // const deleteItems = require("./routes/deleteRoute")
 // const deleteItems = require("./routes/deleteRoute")
 
@@ -70,77 +47,34 @@ const login = require("./routes/login")
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-// Note: mount other resources here, using the same pattern above
 app.use(ordersConfirmed);
 app.use(restaurantConfirm);
 app.use(login);
-// app.use(deleteItems);
-// app.use(deleteItems);
+app.use("/apis", apiData);
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 let order_id = 55;
 let is_empty = true;
-let totalStuff = {
+let totals = {
   subtotal: 0,
   tax: 0,
   total: 0
 };
 
 app.get("/", (req, res) => {
+
   browse((err, items) => {
     if (err) {
       return res.render('error', { err });
     }
-
-    checkoutItems(order_id, (err, checkoutStuff) => {
+    //Gets the cart items on page reload
+    checkoutItems(order_id, (err, itemsInCheckout) => {
       if (err) {
         return res.render('error', { err });
       }
-      res.render('index', { items, checkoutStuff, totalStuff });
-    });
-  });
-});
-
-
-
-app.post('/', (req, res) => {
-
-  const templateVars = {
-    item_id: req.body.item_id,
-    quantity: req.body.quant,
-    special_req: req.body.specialRequests,
-  }
-
-  newOrder( is_empty, (err, order) => {
-    is_empty = false;
-    if (err) {
-      return res.render('error', { err });
-    }
-    order_id = order[0].id;
-
-    addItem(order_id, templateVars.item_id, templateVars.quantity, templateVars.special_req);
-
-
-    browse((err, items) => {
-      if (err) {
-        return res.render('error', { err });
-      }
-
-      checkoutItems(order_id, (err, checkoutStuff) => {
-        if (err) {
-          return res.render('error', { err });
-        }
-        let subtotal = 0; let tax = 0; let grandTotal = 0;
-        for (let i = 0; i < checkoutStuff.length; i++) {
-          subtotal+= (checkoutStuff[i].price * checkoutStuff[i].quantity);
-        }
-        totalStuff.subtotal = Math.round(subtotal*100) / 100;
-        totalStuff.tax = Math.round(subtotal*0.12*100) / 100;
-        totalStuff.total = Math.round((subtotal + subtotal*0.12)*100) / 100;
-        res.render('index', { items, checkoutStuff, totalStuff });
-      });
+      res.render('index', { items, itemsInCheckout, totals });
     });
   });
 });
@@ -152,24 +86,24 @@ app.post('/delete', (req, res) => {
       return res.render('error', { err });
     }
 
-    checkoutItems(order_id, (err, checkoutStuff) => {
+    checkoutItems(order_id, (err, itemsInCheckout) => {
       if (err) {
         return res.render('error', { err });
       }
-      if (checkoutStuff.length === 0 ){
-        totalStuff.subtotal = 0;
-        totalStuff.tax = 0;
-        totalStuff.total = 0;
-        res.render('index', { items, checkoutStuff, totalStuff });
+      if (itemsInCheckout.length === 0 ){
+        totals.subtotal = 0;
+        totals.tax = 0;
+        totals.total = 0;
+        res.render('index', { items, itemsInCheckout, totals });
       }else {
         let subtotal = 0;
-        for (let i = 0; i < checkoutStuff.length; i++) {
-          subtotal+= (checkoutStuff[i].price * checkoutStuff[i].quantity);
+        for (let i = 0; i < itemsInCheckout.length; i++) {
+          subtotal+= (itemsInCheckout[i].price * itemsInCheckout[i].quantity);
         }
-        totalStuff.subtotal = Math.round(subtotal*100) / 100;
-        totalStuff.tax = Math.round(subtotal*0.12*100) / 100;
-        totalStuff.total = Math.round((subtotal + subtotal*0.12)*100) / 100;
-        res.render('index', { items, checkoutStuff, totalStuff });
+        totals.subtotal = Math.round(subtotal*100) / 100;
+        totals.tax = Math.round(subtotal*0.12*100) / 100;
+        totals.total = Math.round((subtotal + subtotal*0.12)*100) / 100;
+        res.render('index', { items, itemsInCheckout, totals });
       }
     });
   });
