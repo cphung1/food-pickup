@@ -23,4 +23,14 @@ const timeConfirmed = function (time_est) {
   .then(message => console.log(message.sid));
 }
 
-module.exports = { orderConfirmed, timeConfirmed };
+const orderCompleted = function () {
+  twilioClient.messages
+  .create({
+     body: `Your order is completed! 😊`,
+     from: '+16042621059',
+     to: '+17809918297'
+   })
+  .then(message => console.log(message.sid));
+}
+
+module.exports = { orderConfirmed, timeConfirmed, orderCompleted };

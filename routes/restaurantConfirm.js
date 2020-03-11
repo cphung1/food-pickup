@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const { checkoutItems, is_accepted, is_completed } = require('../db/queries');
-const { timeConfirmed } = require('./twilio_msgs');
+const { timeConfirmed, orderCompleted } = require('./twilio_msgs');
 
 router.get('/restaurant_confirm/:id', (req, res) => {
   let order_id = req.params.id
@@ -20,9 +20,8 @@ router.post('/restaurant_confirm/:id', (req, res) => {
 });
 
 router.post('/completed', (req, res) => {
-  console.log(req.body.order_id)
   is_completed(req.body.order_id, true);
-  console.log(req.body.order_id)
+  orderCompleted();
   res.redirect(`/restaurant_confirm/${req.body.order_id}`)
 });
 
