@@ -20,6 +20,7 @@
 
 
   <!-- External JS -->
+  <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" data-auto-a11y="true"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -66,9 +67,12 @@
       </table>
     </orderd_items>
     <order_status>
-      Order is confirmed: <%= checkoutStuff[0].is_accepted %>
-      Time est: <%= checkoutStuff[0].time_est %>
-      Order is completed: <%= checkoutStuff[0].is_done %>
+      <p>Order is confirmed:</p>
+      <p id="is_accepted"><%= checkoutStuff[0].is_accepted %></p>
+      <p>Time est: </p>
+      <p id="time_est"><%= checkoutStuff[0].time_est %></p>
+      <p>Order is completed: </p>
+      <p id="is_done"><%= checkoutStuff[0].is_done %></p>
     </order_status>
   </main>
 

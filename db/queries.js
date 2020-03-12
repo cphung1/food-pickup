@@ -84,6 +84,4 @@ const is_completed = (id, bool) => {
   client.query(sql, args);
 };
 
-
-
 module.exports = { browse, checkoutItems, newOrder, addItem, deleteItem, is_accepted, is_completed };
