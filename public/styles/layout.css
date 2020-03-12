@@ -296,7 +296,7 @@ cart article price p {
 
 .panel-heading h4 {
   text-align: center;
-  /* justify-content: flex-end; */
+  text-transform: uppercase;
   width: 100%;
 }
 
