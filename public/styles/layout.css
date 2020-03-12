@@ -80,7 +80,7 @@ nav header h1 {
 
 .modal-body form label {
   text-transform: uppercase;
-  font-size: smaller;
+  font-size: small;
 }
 
 .modal-body quantity {
@@ -97,17 +97,32 @@ nav header h1 {
   text-align: center;
 }
 
-.modal-body quantity button {
+.modal-body quantity .decrease {
   border: 1px solid #dbdbe6;
   color: #07a7c4;
+  margin-left: 39%;
 }
 
-.modal-body quantity button:focus {
+.modal-body quantity .decrease:focus {
+  outline: none;
+}
+
+.modal-body quantity .increase {
+  border: 1px solid #dbdbe6;
+  color: #07a7c4;
+  margin-right: 38%;
+}
+
+.modal-body quantity .increase:focus {
   outline: none;
 }
 
 .modal-body quantity form {
   max-width: 85%;
+}
+
+.modal-body quantity textarea {
+  margin-bottom: 0.5em;
 }
 
 .qty {
@@ -146,6 +161,12 @@ nav header h1 {
   display: none;
 }
 
+.addItemButton {
+  width: 100%;
+  margin-top: 2%;
+  margin-left: 0.5%;
+}
+
 main {
   display: flex;
   flex-direction: row;
@@ -161,12 +182,15 @@ main side_categories ul {
   justify-content: flex-start;
   height: 50vh;
   padding: 0;
+  position: sticky;
+  top: 10px;
 }
 
 main side_categories ul li {
   margin-bottom: 15%;
   font-size: smaller;
   text-transform: uppercase;
+  color: #07a7c4;
 }
 
 mid_categories {
@@ -220,28 +244,6 @@ mid_categories p::first-letter {
   text-transform: uppercase;
 }
 
-checkout {
-  margin-right: 3%;
-}
-
-checkout header {
-  width: 22vw;
-  border: 2px solid #B7D9EB;
-  border-radius: 15px;
-  padding: 7%;
-  margin-top: 2%;
-  height: max-content;
-}
-
-checkout header h4 {
-  margin-top: 0;
-  border-bottom: 1px solid lightgray;
-}
-
-checkout .subtotal_class {
-  border-top: 1px solid lightgray;
-}
-
 cart article {
   display: flex;
   flex-direction: row;
@@ -284,21 +286,102 @@ cart article price p {
   padding-right: 0.5em;
 }
 
-cart totals {
-  display: flex;
-  flex-direction: column;
-  border-top: 2px solid #B7D9EB;
-  margin-top: 70%;
+.panel-group {
+  z-index: 1;
 }
 
-cart totals th {
+.panel.panel-default {
+  position: sticky;
+  top: 90vh;
+  margin-right: 12vw;
+}
+
+.panel.panel-default header {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 45px;
+  background: white;
+}
+
+.panel-title {
+  margin-right: 12vw;
+}
+
+.panel-heading {
+  width: 20vw;
+  background-color: #07a7c4;
+  border-radius: 0.25em;
+  height: 40px;
+}
+
+.panel-heading h4 {
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.panel-heading h4 a {
+  color: white;
+}
+
+.panel-title {
+  height: inherit;
+  padding: 0.2em;
+}
+
+checkout {
+  margin-right: 3%;
+}
+
+checkout header {
+  width: 22vw;
+  border: 2px solid #B7D9EB;
+  border-radius: 15px;
+  padding: 7%;
+  margin-top: 2%;
+  height: max-content;
+}
+
+checkout header h4 {
+  margin-top: 0;
+  border-bottom: 1px solid lightgray;
+}
+
+checkout button {
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.totals {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid lightgray;
+  margin-top: 40%;
+}
+
+.totals table {
+  width: 100%;
+}
+
+.totals th {
   text-align: left;
 }
 
-cart totals td {
+.totals td {
   text-align: right;
 }
 
-cart totals button {
-  text-transform: uppercase;
+#collapse_checkout {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  width: 30px;
+  color: #B7D9EB;
+  background: none;
+  border: none;
+}
+
+#collapse_checkout:focus {
+  border: none;
 }

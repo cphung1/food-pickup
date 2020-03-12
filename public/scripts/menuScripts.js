@@ -48,6 +48,8 @@ $(document).ready(function() {
         let totals = data['totals'];
         loadItems(item, totals);
         $(`#${$inputModal}`).modal("hide")
+        // $('#collapse1').removedClass("panel-collapse collapse")
+        $('#collapse1').addClass("panel-collapse collapse show")
       }
     });
     // open(location, '_self').close();
@@ -66,6 +68,11 @@ $(document).ready(function() {
         let item = data['itemsCheckInCheckout'];
         let totals = data['totals'];
         loadItems(item, totals);
+        if (item.length === 0) {
+          $('#collapse1').removeClass("panel-collapse collapse show")
+          $('#collapse1').addClass("panel-collapse collapse")
+        }
+        console.log(item.length)
       }
     });
   });
@@ -110,7 +117,7 @@ const loadItems = function(item, totals) {
                 <itemName>${item[i].name}</itemName>
               </item>
               <price id="deleteId">
-                <p>${item[i].price}</p>
+                <p>$${item[i].price}</p>
                 <button type="button" class="deleteClass" id=${item[i].id}>
                   <i class="fas fa-times fa-xs"></i>
                 </button>
@@ -127,17 +134,16 @@ const loadItems = function(item, totals) {
   <table style="width:100%">
   <tr>
     <th class='subtotal_class'>Subtotal</th>
-    <td id="subtotal" class='subtotal_class'>${totals.subtotal}</td>
+    <td id="subtotal" class='subtotal_class'>$${totals.subtotal}</td>
   </tr>
   <tr>
     <th>Tax</th>
-    <td id="tax">${totals.tax}</td>
+    <td id="tax">$${totals.tax}</td>
   </tr>
   <tr>
     <th>Total</th>
-    <td id="total">${totals.total}</td>
+    <td id="total">$${totals.total}</td>
   </tr>
 </table>
-<button type="button" class="btn btn-outline-info">Place Order</button>
   `);
 };

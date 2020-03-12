@@ -15,12 +15,15 @@ main {
     justify-content: flex-start;
     height: 50vh;
     padding: 0;
+    position: sticky;
+    top: 10px;
   }
 
   side_categories ul li {
     margin-bottom: 15%;
     font-size: smaller;
     text-transform: uppercase;
+    color: $primary-color
   }
 }
 
@@ -72,28 +75,6 @@ mid_categories {
 
 }
 
-checkout {
-  margin-right: 3%;
-
-  header {
-    width: 22vw;
-    border: 2px solid $secondary-color;
-    border-radius: 15px;
-    padding: 7%;
-    margin-top: 2%;
-    height: max-content;
-  }
-
-  header h4 {
-    margin-top: 0;
-    border-bottom: 1px solid lightgray;
-  }
-
-  .subtotal_class {
-    border-top: 1px solid lightgray;
-  }
-}
-
 cart {
   article {
     display: flex;
@@ -137,22 +118,101 @@ cart {
     }
   }
 
-  totals {
-    display: flex;
-    flex-direction: column;
-    border-top: 2px solid $secondary-color;
-    margin-top: 70%;
 
-    th {
-      text-align: left;
-    }
+}
 
-    td {
-      text-align: right;
+.panel-group {
+  z-index: 1;
+}
+
+.panel.panel-default {
+  position: sticky;
+  top: 90vh;
+  margin-right: 12vw;
+  header {
+    width: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 45px;
+    background: white;
+  }
+}
+
+.panel-title {
+  margin-right: 12vw;
+}
+
+.panel-heading {
+  width: 20vw;
+  background-color: $primary-color;
+  border-radius: 0.25em;
+  height: 40px;
+
+  h4 {
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    a{
+      color: white;
     }
-    button {
-      text-transform: uppercase;
-    }
+  }
+}
+.panel-title {
+  height: inherit;
+  padding: 0.2em;
+}
+checkout {
+  margin-right: 3%;
+
+  header {
+    width: 22vw;
+    border: 2px solid $secondary-color;
+    border-radius: 15px;
+    padding: 7%;
+    margin-top: 2%;
+    height: max-content;
+  }
+
+  header h4 {
+    margin-top: 0;
+    border-bottom: 1px solid lightgray;
+  }
+  button {
+    text-transform: uppercase;
+    width: 100%;
   }
 
 }
+
+.totals {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid lightgray;
+  margin-top: 40%;
+  table {
+    width: 100%
+  }
+  th {
+    text-align: left;
+  }
+
+  td {
+    text-align: right;
+  }
+}
+
+#collapse_checkout {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  width: 30px;
+  color: $secondary-color;
+  background: none;
+  border: none;
+  &:focus{
+    border: none;
+  }
+}
+
+
+
