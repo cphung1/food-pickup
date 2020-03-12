@@ -11,7 +11,6 @@ router.post('/confirm_order', (req, res) => {
 
 router.post('/completed', (req, res) => {
   is_completed(req.body.order_id, true);
-  console.log(req.body.order_id)
   // orderCompleted();
   res.send(req.body.order_id)
 });

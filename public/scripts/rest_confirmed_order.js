@@ -23,7 +23,6 @@ $(function() {
   // sends text message to notify customer of order status
   $('#order_done_btn').click(function () {
     let $orderId = $(this).parent().find("div").find("input").serialize();
-    console.log($orderId);
     $.ajax( {
       type: "POST",
       url:"/restaurant/completed",
