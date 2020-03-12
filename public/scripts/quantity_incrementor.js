@@ -1,3 +1,4 @@
+// increase and decreases quantity for items in modal
 $(function() {
   $(".increase").click(function() {
     updateValue(this, 1);

@@ -23,7 +23,6 @@ $(document).ready(function() {
   $('.addItemButton').click(function() {
     const $inputData = $(this).parent().serialize();
     const $inputModal = $(this).parent().parent().parent().parent().parent().parent().attr('id')
-    // console.log($(this).parent().serialize();
     $.ajax({
       type: 'POST',
       url: '/apis/checkoutItems',
@@ -32,7 +31,6 @@ $(document).ready(function() {
         let item = data['itemsCheckInCheckout'];
         let totals = data['totals'];
         loadItems(item, totals);
-        console.log($inputModal)
         $(`#${$inputModal}`).modal("hide")
       }
     });
@@ -55,12 +53,12 @@ $(document).ready(function() {
     });
   });
 
+  // redirects user once customer has placed order
   $('#place_order').click(function() {
     $.ajax({
       type: 'POST',
       url: '/apis/confirmed/:id',
       success: function(data){
-        console.log(data)
         document.location.href = `/confirmed/${data}`;
       }
     })
@@ -70,7 +68,6 @@ $(document).ready(function() {
 //---------------------------------------Helper Functions------------------------------------//
 const loadItems = function(item, totals) {
   $('cart').empty();
-
   for (let i = 0; i < item.length; i++) {
     $('cart').append(`
               <article>
