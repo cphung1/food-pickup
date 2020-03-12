@@ -15,7 +15,7 @@
 
     label {
       text-transform: uppercase;
-      font-size: smaller;
+      font-size: small;
     }
   }
 
@@ -42,17 +42,18 @@
     .increase {
       border: 1px solid #dbdbe6;
       color: $primary-color;
-      margin-right: 38%
+      margin-right: 38%;
       &:focus {
         outline: none;
       }
     }
-
-  }
-  quantity {
     form {
       max-width: 85%;
     }
+    textarea {
+      margin-bottom: 0.5em;
+    }
+
   }
 }
 

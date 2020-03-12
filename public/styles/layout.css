@@ -80,7 +80,7 @@ nav header h1 {
 
 .modal-body form label {
   text-transform: uppercase;
-  font-size: smaller;
+  font-size: small;
 }
 
 .modal-body quantity {
@@ -100,6 +100,7 @@ nav header h1 {
 .modal-body quantity .decrease {
   border: 1px solid #dbdbe6;
   color: #07a7c4;
+  margin-left: 39%;
 }
 
 .modal-body quantity .decrease:focus {
@@ -109,6 +110,7 @@ nav header h1 {
 .modal-body quantity .increase {
   border: 1px solid #dbdbe6;
   color: #07a7c4;
+  margin-right: 38%;
 }
 
 .modal-body quantity .increase:focus {
@@ -117,6 +119,10 @@ nav header h1 {
 
 .modal-body quantity form {
   max-width: 85%;
+}
+
+.modal-body quantity textarea {
+  margin-bottom: 0.5em;
 }
 
 .qty {
