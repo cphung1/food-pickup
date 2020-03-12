@@ -74,7 +74,7 @@ const loadItems = function(item, totals) {
   $('cart').empty();
 
   for (let i = 0; i < item.length; i++) {
-    $('cart').prepend(`
+    $('cart').append(`
               <article>
               <form>
               <item>
