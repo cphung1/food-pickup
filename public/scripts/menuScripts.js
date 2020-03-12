@@ -28,7 +28,7 @@ $(document).ready(function() {
   });
 
   $("#food_id").click(function() {
-    window.scrollTo(0, 830);
+    window.scrollTo(0, 800);
   });
 
   $("#tea_id").click(function() {
@@ -75,7 +75,7 @@ const loadItems = function(item, totals) {
 
   for (let i = 0; i < item.length; i++) {
     $('cart').append(`
-              <article>
+              <article style='margin-bottom: 5%;'>
               <form>
               <item>
                 <number>${item[i].quantity}</number>
