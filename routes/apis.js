@@ -1,10 +1,12 @@
 const express = require('express');
 const router  = express.Router();
 const { browse, checkoutItems, newOrder, addItem, deleteItem } = require('../db/queries');
+const { orderConfirmed } = require('./twilio_msgs')
 // const { checkoutUpdater } = require('../public/scripts/helperFunctions');
-let order_id = 55;
+let order_id = 0;
 let is_empty = true;
 let totals = { subtotal: 0, tax: 0, total: 0 };
+
 
 //Adds items to cart//
 router.post('/checkoutItems', (req, res) => {
@@ -23,11 +25,11 @@ router.post('/checkoutItems', (req, res) => {
     order_id = order[0].id;
     addItem(order_id, addItemData.item_id, addItemData.quantity, addItemData.special_req);
     checkoutUpdater((obj) => {
-      res.send(obj);
+    res.send(obj);
     });
   });
-
 });
+
 //Deletes items from cart//
 router.post('/deleteItems', (req, res) => {
   newOrder(is_empty, (err, order) => {
@@ -37,10 +39,15 @@ router.post('/deleteItems', (req, res) => {
     }
     order_id = order[0].id;
     deleteItem(order_id, req.body.item_id);
-  checkoutUpdater((obj) => {
+    checkoutUpdater((obj) => {
     res.send(obj);
+    });
   });
-  });
+});
+
+router.post("/confirmed/:id", function(req, res) {
+  // orderConfirmed(order_id) // Sends text
+  res.send(`${order_id}`)
 });
 
 //------------------------------------------------Helper Functions-------------------------------------------

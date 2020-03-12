@@ -30,6 +30,7 @@ $(document).ready(function() {
         let item = data['itemsCheckInCheckout'];
         let totals = data['totals'];
         loadItems(item, totals);
+        $(this).modal('hide');
       }
     });
   });
@@ -50,6 +51,17 @@ $(document).ready(function() {
       }
     });
   });
+
+  $('#place_order').click(function() {
+    $.ajax({
+      type: 'POST',
+      url: '/apis/confirmed/:id',
+      success: function(data){
+        console.log(data)
+        document.location.href = `/confirmed/${data}`;
+      }
+    })
+  })
 });
 
 //---------------------------------------Helper Functions------------------------------------//
@@ -79,20 +91,19 @@ const loadItems = function(item, totals) {
   $('totals').empty();
 
   $('totals').append(`
-  <table style="width:100%">
-  <tr>
-    <th>Subtotal</th>
-    <td id="subtotal">${totals.subtotal}</td>
-  </tr>
-  <tr>
-    <th>Tax</th>
-    <td id="tax">${totals.tax}</td>
-  </tr>
-  <tr>
-    <th>Total</th>
-    <td id="total">${totals.total}</td>
-  </tr>
-</table>
-<button type="button" class="btn btn-outline-info">Place Order</button>
+    <table style="width:100%">
+    <tr>
+      <th>Subtotal</th>
+      <td id="subtotal">${totals.subtotal}</td>
+    </tr>
+    <tr>
+      <th>Tax</th>
+      <td id="tax">${totals.tax}</td>
+    </tr>
+    <tr>
+      <th>Total</th>
+      <td id="total">${totals.total}</td>
+    </tr>
+  </table>
   `);
 };

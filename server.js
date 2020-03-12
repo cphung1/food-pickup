@@ -50,7 +50,7 @@ app.use(login);
 app.use("/apis", apiData);
 app.use(ordersConfirmedRender);
 app.use("/restaurant", restaurantConfirm);
-app.use(restaurantRender)
+app.use(restaurantRender);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
