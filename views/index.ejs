@@ -43,7 +43,7 @@
         <article>
           <button type="button" data-toggle="modal" data-target="#modal-<%= item.id %>" >
             <h4><%= item.name %></h4>
-            <p2><%= item.price %></p2>
+            <p2>$<%= item.price %></p2>
           </button>
           <p class="text-left"><%= item.description %></p>
         </article>
@@ -119,6 +119,9 @@
                 <checkout>
                   <header>
                     <h4>Checkout</h4>
+                    <button id="collapse_checkout" data-toggle="collapse" href="#collapse1" class="collapsed" aria-expanded="false">
+                      <i class="fas fa-minus fa-lg"></i>
+                    </button>
                     <cart>
                     </cart>
                     <totals class="totals">

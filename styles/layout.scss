@@ -128,7 +128,7 @@ cart {
 .panel.panel-default {
   position: sticky;
   top: 90vh;
-  margin-right: 10vw;
+  margin-right: 12vw;
   header {
     width: 100%;
     position: absolute;
@@ -143,8 +143,8 @@ cart {
 }
 
 .panel-heading {
-  width: 25vw;
-  background-color: $secondary-color;
+  width: 20vw;
+  background-color: $primary-color;
   border-radius: 0.25em;
   height: 40px;
 
@@ -171,8 +171,6 @@ checkout {
     padding: 7%;
     margin-top: 2%;
     height: max-content;
-    // position: sticky;
-    // top: calc(100vh - 70vh);
   }
 
   header h4 {
@@ -202,4 +200,18 @@ checkout {
     text-align: right;
   }
 }
+
+#collapse_checkout {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  width: 30px;
+  color: $secondary-color;
+  background: none;
+  border: none;
+  &:focus{
+    border: none;
+  }
+}
+
 

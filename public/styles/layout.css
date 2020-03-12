@@ -272,7 +272,7 @@ cart article price p {
 .panel.panel-default {
   position: sticky;
   top: 90vh;
-  margin-right: 10vw;
+  margin-right: 12vw;
 }
 
 .panel.panel-default header {
@@ -288,8 +288,8 @@ cart article price p {
 }
 
 .panel-heading {
-  width: 25vw;
-  background-color: #B7D9EB;
+  width: 20vw;
+  background-color: #07a7c4;
   border-radius: 0.25em;
   height: 40px;
 }
@@ -349,4 +349,18 @@ checkout button {
 
 .totals td {
   text-align: right;
+}
+
+#collapse_checkout {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  width: 30px;
+  color: #B7D9EB;
+  background: none;
+  border: none;
+}
+
+#collapse_checkout:focus {
+  border: none;
 }
