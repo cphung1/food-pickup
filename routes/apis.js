@@ -38,7 +38,9 @@ router.post('/deleteItems', (req, res) => {
       return res.render('error', { err });
     }
     order_id = order[0].id;
+    if (req.body.item_id) {
     deleteItem(order_id, req.body.item_id);
+    }
     checkoutUpdater((obj) => {
     res.send(obj);
     });

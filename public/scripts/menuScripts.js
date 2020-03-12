@@ -82,6 +82,22 @@ $(document).ready(function() {
   })
 });
 
+//Load items in cart on refresh
+$(window).on('load', function(){
+  event.preventDefault();
+  const $inputData = null;
+  const inputObj = { item_id: $inputData };
+  $.ajax({
+    type: 'POST',
+    url: '/apis/deleteItems',
+    data: (inputObj),
+    success: function(data) {
+      let item = data['itemsCheckInCheckout'];
+      let totals = data['totals'];
+      loadItems(item, totals);
+    }
+  });
+});
 //---------------------------------------Helper Functions------------------------------------//
 const loadItems = function(item, totals) {
   $('cart').empty();
