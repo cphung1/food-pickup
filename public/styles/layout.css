@@ -234,6 +234,8 @@ checkout header {
   padding: 7%;
   margin-top: 2%;
   height: max-content;
+  position: sticky;
+  top: calc(100vh - 70vh);
 }
 
 checkout header h4 {

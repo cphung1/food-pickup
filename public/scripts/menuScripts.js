@@ -47,6 +47,7 @@ $(document).ready(function() {
         let item = data['itemsCheckInCheckout'];
         let totals = data['totals'];
         loadItems(item, totals);
+        console.log(item.length)
         $(`#${$inputModal}`).modal("hide")
       }
     });
