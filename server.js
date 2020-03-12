@@ -41,8 +41,6 @@ const apiData = require("./routes/apis")
 const ordersConfirmedRender = require("./routes/ordersConfirmedRender");
 const restaurantConfirm = require("./routes/restaurantConfirm")
 const restaurantRender = require("./routes/restConfirmRender")
-// const deleteItems = require("./routes/deleteRoute")
-// const ordersConfirmed = require("./routes/ordersConfirmedRender");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -50,7 +48,6 @@ app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use(login);
 app.use("/apis", apiData);
-// setInterval(function(){ app.use(ordersConfirmedRender); }, 5000);
 app.use(ordersConfirmedRender);
 app.use("/restaurant", restaurantConfirm);
 app.use(restaurantRender)
