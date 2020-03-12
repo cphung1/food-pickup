@@ -72,6 +72,18 @@ const deleteItem = (order_id, item_id) => {
   WHERE order_id = $1 AND item_id = $2;`, [order_id, item_id])
 };
 
+const is_accepted = (id, bool, time) => {
+  const sql = 'UPDATE orders SET is_accepted = $2, time_est = $3 WHERE id = $1;';
+  const args = [id, bool, time];
+  client.query(sql, args);
+};
+
+const is_completed = (id, bool) => {
+  const sql = 'UPDATE orders SET is_done = $2 WHERE id = $1;';
+  const args = [id, bool];
+  client.query(sql, args);
+};
 
 
-module.exports = { browse, checkoutItems, newOrder, addItem, deleteItem };
+
+module.exports = { browse, checkoutItems, newOrder, addItem, deleteItem, is_accepted, is_completed };
