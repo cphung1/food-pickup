@@ -38,6 +38,7 @@ $(document).ready(function() {
   //Add items to cart
   $('.addItemButton').click(function() {
     const $inputData = $(this).parent().serialize();
+    const $inputModal = $(this).parent().parent().parent().parent().parent().parent().attr('id')
     $.ajax({
       type: 'POST',
       url: '/apis/checkoutItems',
@@ -46,6 +47,7 @@ $(document).ready(function() {
         let item = data['itemsCheckInCheckout'];
         let totals = data['totals'];
         loadItems(item, totals);
+        $(`#${$inputModal}`).modal("hide")
       }
     });
     // open(location, '_self').close();
@@ -67,12 +69,22 @@ $(document).ready(function() {
       }
     });
   });
+
+  // redirects user once customer has placed order
+  $('#place_order').click(function() {
+    $.ajax({
+      type: 'POST',
+      url: '/apis/confirmed/:id',
+      success: function(data){
+        document.location.href = `/confirmed/${data}`;
+      }
+    })
+  })
 });
 
 //---------------------------------------Helper Functions------------------------------------//
 const loadItems = function(item, totals) {
   $('cart').empty();
-
   for (let i = 0; i < item.length; i++) {
     $('cart').append(`
               <article style='margin-bottom: 5%;'>
