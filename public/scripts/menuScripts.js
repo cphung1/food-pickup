@@ -47,8 +47,9 @@ $(document).ready(function() {
         let item = data['itemsCheckInCheckout'];
         let totals = data['totals'];
         loadItems(item, totals);
-        console.log(item.length)
         $(`#${$inputModal}`).modal("hide")
+        // $('#collapse1').removedClass("panel-collapse collapse")
+        $('#collapse1').addClass("panel-collapse collapse show")
       }
     });
     // open(location, '_self').close();
@@ -67,6 +68,11 @@ $(document).ready(function() {
         let item = data['itemsCheckInCheckout'];
         let totals = data['totals'];
         loadItems(item, totals);
+        if (item.length === 0) {
+          $('#collapse1').removeClass("panel-collapse collapse show")
+          $('#collapse1').addClass("panel-collapse collapse")
+        }
+        console.log(item.length)
       }
     });
   });
