@@ -122,6 +122,5 @@ const loadItems = function(item, totals) {
     <td id="total">${totals.total}</td>
   </tr>
 </table>
-<button type="button" class="btn btn-outline-info">Place Order</button>
   `);
 };
