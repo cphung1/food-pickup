@@ -31,13 +31,23 @@
       width: 30px;
       text-align: center;
     }
-    button {
+    .decrease {
       border: 1px solid #dbdbe6;
       color: $primary-color;
+      margin-left: 39%;
       &:focus {
         outline: none;
       }
     }
+    .increase {
+      border: 1px solid #dbdbe6;
+      color: $primary-color;
+      margin-right: 38%
+      &:focus {
+        outline: none;
+      }
+    }
+
   }
   quantity {
     form {
@@ -84,3 +94,10 @@
 #hideen {
   display: none;
 }
+
+.addItemButton {
+  width: 100%;
+    margin-top: 2%;
+    margin-left: 0.5%;
+}
+
