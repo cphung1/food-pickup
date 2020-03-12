@@ -7,6 +7,7 @@ $(function() {
       data: ($time),
       success: function(data) {
         $('#time').addClass("disable_confirm")
+        $('#completed').removeClass("hide_completed")
         $('#time').append(`
           <p>Time has been submitted. (${data} minutes)</p>
         `);
@@ -23,7 +24,7 @@ $(function() {
       data: ($orderId),
       success: function(data) {
         $('#order_done_btn').toggleClass("disable_complete")
-        $('div').append(`
+        $('#completed').append(`
           <p>Order is completed.</p>
         `);
       }

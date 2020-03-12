@@ -36,6 +36,14 @@ main {
     }
   }
 
+  #below_totals {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-top: 1px solid $secondary-color;
+    padding: 1.5em;
+  }
+
   form {
     input {
       border-radius: $bs-border-radius;
@@ -67,18 +75,33 @@ confirmed {
 #order_id {
   display: none;
 }
-
-#completed {
-  p {
-    margin-top: 3em;
-    border-top: 1px solid $secondary-color
+#time {
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    label {
+      align-self: center;
+      margin-bottom: 0;
+    }
   }
+}
+#completed {
+  width: 467px;
   input {
     pointer-events: none;
     border: none;
     margin-left: 0;
     padding: 0;
     width: 30px;
+  }
+  #align_buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    div {
+      align-self: center;
+    }
   }
 }
 
@@ -96,4 +119,17 @@ confirmed {
 .disable_complete {
   pointer-events: none;
   opacity: 25%;
+}
+
+.vl {
+  border-left: 2px solid $secondary-color;
+  height: 130px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  border-top: 0;
+}
+.hide_completed {
+  opacity: 25%;
+  pointer-events: none;
 }

@@ -62,22 +62,21 @@
         </tfoot>
       </table>
     </orderd_items>
-    <div>
-      <confirmed>
-        <p>Confirm the order by entering the estimated time it will take to complete it.</p>
-      </confirmed>
-
+    <div id="below_totals">
       <form id="time">
+        <p>Confirm the order by entering the estimated time it will take to complete it.</p>
         <label>Estimated Time: </label>
         <input id="time_est" name="time_est" type="number" pattern="[0-9]"placeholder="minutes">
         <input id="order_id" value="<%= order_id %>" name="order_id">
         <button id="confirm_time_est_btn" type="button" class="btn btn-info">Confirm</button>
       </form>
-
-      <form id="completed" >
+      <div class="vl"></div>
+      <form id="completed" class="hide_completed">
         <p>When the order is complete please press the completed button.</p>
-        Order #<input name="order_id" value=<%= order_id %>>
+        <div id="align_buttons">
+        <div>Order #<input name="order_id" value=<%= order_id %>></div>
         <button id="order_done_btn" type="button" class="btn btn-danger">Order Completed</button>
+      </div>
       </form>
     </div>
   </main>
