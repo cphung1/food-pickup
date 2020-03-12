@@ -18,6 +18,22 @@ $(document).ready(function() {
     $('top_bar').css("font-weight", "bold");
   }
 
+  //-------------------------------------Side-bar navigation---------------------------------
+  let height = $(window).height();
+
+  $("#coffee_id").click(function() {
+    window.scrollTo(0, 280);
+    // #submitStuff-4.scrollIntoView();
+    // console.log("The height in this example is", height);
+  });
+
+  $("#food_id").click(function() {
+    window.scrollTo(0, 830);
+  });
+
+  $("#tea_id").click(function() {
+    window.scrollTo(0, 1520);
+  });
   //------------------------------------------Checkout Functions-------------------------------
   //Add items to cart
   $('.addItemButton').click(function() {
@@ -81,8 +97,8 @@ const loadItems = function(item, totals) {
   $('totals').append(`
   <table style="width:100%">
   <tr>
-    <th>Subtotal</th>
-    <td id="subtotal">${totals.subtotal}</td>
+    <th class='subtotal_class'>Subtotal</th>
+    <td id="subtotal" class='subtotal_class'>${totals.subtotal}</td>
   </tr>
   <tr>
     <th>Tax</th>

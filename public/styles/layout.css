@@ -238,6 +238,10 @@ checkout header h4 {
   border-bottom: 1px solid lightgray;
 }
 
+checkout .subtotal_class {
+  border-top: 1px solid lightgray;
+}
+
 cart article {
   display: flex;
   flex-direction: row;
