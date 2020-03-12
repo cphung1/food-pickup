@@ -22,6 +22,8 @@ $(document).ready(function() {
   //Add items to cart
   $('.addItemButton').click(function() {
     const $inputData = $(this).parent().serialize();
+    const $inputModal = $(this).parent().parent().parent().parent().parent().parent().attr('id')
+    // console.log($(this).parent().serialize();
     $.ajax({
       type: 'POST',
       url: '/apis/checkoutItems',
@@ -30,7 +32,8 @@ $(document).ready(function() {
         let item = data['itemsCheckInCheckout'];
         let totals = data['totals'];
         loadItems(item, totals);
-        $(this).modal('hide');
+        console.log($inputModal)
+        $(`#${$inputModal}`).modal("hide")
       }
     });
   });
