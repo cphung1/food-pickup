@@ -36,20 +36,13 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
-<<<<<<< HEAD
 const login = require("./routes/login")
 const apiData = require("./routes/apis")
 const ordersConfirmedRender = require("./routes/ordersConfirmedRender");
 const restaurantConfirm = require("./routes/restaurantConfirm")
 const restaurantRender = require("./routes/restConfirmRender")
 // const deleteItems = require("./routes/deleteRoute")
-=======
 const ordersConfirmed = require("./routes/ordersConfirmed");
-const restaurantConfirm = require("./routes/restaurantConfirm");
-const login = require("./routes/login");
-const apiData = require("./routes/apis");
->>>>>>> delete
-
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -64,16 +57,6 @@ app.use(restaurantRender)
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-<<<<<<< HEAD
-let order_id = 0;
-let is_empty = true;
-let totals = {
-  subtotal: 0,
-  tax: 0,
-  total: 0
-};
-=======
->>>>>>> delete
 
 
 app.get("/", (req, res) => {
@@ -86,48 +69,6 @@ app.get("/", (req, res) => {
   });
 });
 
-<<<<<<< HEAD
-app.post('/delete', (req, res) => {
-  deleteItem(req.body.order_id, req.body.item_id);
-  browse((err, items) => {
-    if (err) {
-      return res.render('error', { err });
-    }
-
-    checkoutItems(order_id, (err, itemsInCheckout) => {
-      if (err) {
-        return res.render('error', { err });
-      }
-      if (itemsInCheckout.length === 0 ){
-        totals.subtotal = 0;
-        totals.tax = 0;
-        totals.total = 0;
-        res.render('index', { items, itemsInCheckout, totals });
-      }else {
-        let subtotal = 0;
-        for (let i = 0; i < itemsInCheckout.length; i++) {
-          subtotal+= (itemsInCheckout[i].price * itemsInCheckout[i].quantity);
-        }
-        totals.subtotal = Math.round(subtotal*100) / 100;
-        totals.tax = Math.round(subtotal*0.12*100) / 100;
-        totals.total = Math.round((subtotal + subtotal*0.12)*100) / 100;
-        res.render('index', { items, itemsInCheckout, totals });
-      }
-    });
-  });
-  res.redirect("/")
-});
-
-// const { orderConfirmed } = require('./routes/twilio_msgs')
-
-
-app.post('/order_placed', (req, res) => {
-  orderConfirmed(order_id);
-  res.redirect(`/confirmed/${order_id}`)
-});
-
-=======
->>>>>>> delete
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
