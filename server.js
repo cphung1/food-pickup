@@ -37,11 +37,9 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
 const ordersConfirmed = require("./routes/ordersConfirmed");
-const restaurantConfirm = require("./routes/restaurantConfirm")
-const login = require("./routes/login")
-const apiData = require("./routes/apis")
-// const deleteItems = require("./routes/deleteRoute")
-// const deleteItems = require("./routes/deleteRoute")
+const restaurantConfirm = require("./routes/restaurantConfirm");
+const login = require("./routes/login");
+const apiData = require("./routes/apis");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -55,13 +53,6 @@ app.use("/apis", apiData);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-let order_id = 55;
-let is_empty = true;
-let totals = {
-  subtotal: 0,
-  tax: 0,
-  total: 0
-};
 
 app.get("/", (req, res) => {
 
@@ -69,45 +60,8 @@ app.get("/", (req, res) => {
     if (err) {
       return res.render('error', { err });
     }
-    //Gets the cart items on page reload
-    checkoutItems(order_id, (err, itemsInCheckout) => {
-      if (err) {
-        return res.render('error', { err });
-      }
-      res.render('index', { items, itemsInCheckout, totals });
-    });
+    res.render('index', { items });
   });
-});
-
-app.post('/delete', (req, res) => {
-  deleteItem(req.body.order_id, req.body.item_id);
-  browse((err, items) => {
-    if (err) {
-      return res.render('error', { err });
-    }
-
-    checkoutItems(order_id, (err, itemsInCheckout) => {
-      if (err) {
-        return res.render('error', { err });
-      }
-      if (itemsInCheckout.length === 0 ){
-        totals.subtotal = 0;
-        totals.tax = 0;
-        totals.total = 0;
-        res.render('index', { items, itemsInCheckout, totals });
-      }else {
-        let subtotal = 0;
-        for (let i = 0; i < itemsInCheckout.length; i++) {
-          subtotal+= (itemsInCheckout[i].price * itemsInCheckout[i].quantity);
-        }
-        totals.subtotal = Math.round(subtotal*100) / 100;
-        totals.tax = Math.round(subtotal*0.12*100) / 100;
-        totals.total = Math.round((subtotal + subtotal*0.12)*100) / 100;
-        res.render('index', { items, itemsInCheckout, totals });
-      }
-    });
-  });
-  res.redirect("/")
 });
 
 app.listen(PORT, () => {
