@@ -161,12 +161,15 @@ main side_categories ul {
   justify-content: flex-start;
   height: 50vh;
   padding: 0;
+  position: sticky;
+  top: 10px;
 }
 
 main side_categories ul li {
   margin-bottom: 15%;
   font-size: smaller;
   text-transform: uppercase;
+  color: #07a7c4;
 }
 
 mid_categories {

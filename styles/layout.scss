@@ -15,12 +15,15 @@ main {
     justify-content: flex-start;
     height: 50vh;
     padding: 0;
+    position: sticky;
+    top: 10px;
   }
 
   side_categories ul li {
     margin-bottom: 15%;
     font-size: smaller;
     text-transform: uppercase;
+    color: $primary-color
   }
 }
 
@@ -154,5 +157,4 @@ cart {
       text-transform: uppercase;
     }
   }
-
 }
