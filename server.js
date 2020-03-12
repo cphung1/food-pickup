@@ -42,7 +42,7 @@ const ordersConfirmedRender = require("./routes/ordersConfirmedRender");
 const restaurantConfirm = require("./routes/restaurantConfirm")
 const restaurantRender = require("./routes/restConfirmRender")
 // const deleteItems = require("./routes/deleteRoute")
-const ordersConfirmed = require("./routes/ordersConfirmed");
+// const ordersConfirmed = require("./routes/ordersConfirmedRender");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
