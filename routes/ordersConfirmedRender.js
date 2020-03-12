@@ -5,6 +5,8 @@ const { checkoutItems } = require('../db/queries');
 router.get('/confirmed/:id', (req, res) => {
   let order_id = req.params.id;
   let totals = { subtotal: 0, tax: 0, total: 0 };
+
+
   checkoutItems(order_id, (err, checkoutStuff) => {
     if (err) {
       return res.render('error', { err });
