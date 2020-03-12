@@ -16,13 +16,13 @@ $(function() {
   });
 
   $('#order_done_btn').click(function () {
-    let $orderId = $(this).parent().serialize();
+    let $orderId = $(this).parent().find("div").find("input").serialize();
     console.log($orderId);
     $.ajax( {
       type: "POST",
       url:"/restaurant/completed",
       data: ($orderId),
-      success: function(data) {
+      success: function() {
         $('#order_done_btn').toggleClass("disable_complete")
         $('#completed').append(`
           <p>Order is completed.</p>
