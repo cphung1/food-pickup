@@ -48,6 +48,7 @@ $(document).ready(function() {
         loadItems(item, totals);
       }
     });
+    // open(location, '_self').close();
   });
 
   //Delete items from cart
