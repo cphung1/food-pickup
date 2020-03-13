@@ -2,7 +2,6 @@
 $(function() {
   // setTimeout(function() {location.reload();}, 5000);
 
-
   // const url = window.location.href
   // const arr = url.split('/')
   // console.log(arr[arr.length - 1])
@@ -13,7 +12,7 @@ $(function() {
     $('#time_est').addClass("complete")
     $('#is_accepted').empty();
     $('#is_accepted').append(`
-    <p><i class="fas fa-check"></i> Order is confirmed</p>
+    <p><i class="fas fa-check"></i> Order is confirmed.</p>
     `)
     $('#time_est').empty();
     $('#time_est').append(`
@@ -25,7 +24,7 @@ $(function() {
     $('#is_done').addClass("complete")
     $('#is_done').empty();
     $('#is_done').append(`
-    <p><i class="fas fa-check"></i> Order is completed</p>
+    <p><i class="fas fa-check"></i> Order is completed.</p>
     `)
   }
 

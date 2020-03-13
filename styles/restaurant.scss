@@ -13,6 +13,7 @@ main {
     margin-top: 0.5em;
     border-radius: 0.25em;
     color: #586770;
+    box-shadow: lightgrey 1px 2px 2px 0px;
   }
 
   table {
@@ -132,4 +133,14 @@ confirmed {
 .hide_completed {
   opacity: 25%;
   pointer-events: none;
+}
+
+#order_is_completed {
+  display: flex;
+  justify-content: center;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus{
+  outline:none;
+  box-shadow:none;
 }

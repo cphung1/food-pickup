@@ -30,7 +30,7 @@ $(function() {
       success: function() {
         $('#order_done_btn').toggleClass("disable_complete")
         $('#completed').append(`
-          <p>Order is completed.</p>
+          <p id="order_is_completed">Order is completed.</p>
         `);
       }
     })
