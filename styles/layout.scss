@@ -167,7 +167,7 @@ checkout {
   header {
     width: 22vw;
     border: 2px solid $secondary-color;
-    border-radius: 15px;
+    border-radius: $bs-border-radius;
     padding: 7%;
     margin-top: 2%;
     height: max-content;
@@ -238,5 +238,16 @@ checkout {
       text-decoration: underline overline;
     }
   }
+}
+
+.panel.panel-default header {
+  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 39px;
+  background: white;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom: 0px;
 }
 
