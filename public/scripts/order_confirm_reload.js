@@ -16,7 +16,7 @@ $(function() {
     `)
     $('#time_est').empty();
     $('#time_est').append(`
-    <p><i class="fas fa-hourglass-half"></i> ${$('#time_est').attr("value")} minutes</p>
+    <p><i class="fas fa-hourglass-half"></i> Order will be ready ${$('#time_est').attr("value")} minutes.</p>
     `)
   }
 
