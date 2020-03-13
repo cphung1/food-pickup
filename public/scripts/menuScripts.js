@@ -122,7 +122,7 @@ const loadItems = function(item, totals) {
                 <itemName>${item[i].name}</itemName>
               </item>
               <price id="deleteId">
-                <p>$${item[i].price}</p>
+                <p>$${(Math.round((item[i].price  * item[i].quantity) * 100) / 100).toFixed(2)}</p>
                 <button type="button" class="deleteClass" id=${item[i].id}>
                   <i class="fas fa-times fa-xs"></i>
                 </button>
