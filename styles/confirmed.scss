@@ -37,4 +37,44 @@ main {
   }
 
 }
+order_status {
+  table {
+    margin-left: 25vw;
+  }
+  td {
+    width: 65vw;
+  }
+  p {
+    color: $primary-color
+  }
+}
+h5 {
+  display: flex;
+  justify-content: center;
+  background-color: #eddfe4;
+  color: #586770;
+  border-radius: 0.25em;
+  padding: 0.5em;
+}
+
+
+.fa-check {
+  color: red;
+  margin-right: 1em;
+}
+
+.fa-hourglass-half {
+  color: red;
+  margin-right: 1em;
+}
+
+.fa-clock{
+  margin-right: 1em;
+}
+
+.complete {
+  p {
+    color: #d96262;
+  }
+}
 

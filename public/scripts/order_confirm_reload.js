@@ -7,19 +7,25 @@ $(function() {
   // const arr = url.split('/')
   // console.log(arr[arr.length - 1])
 
-  console.log($('#is_accepted').text())
-  if ($('#is_accepted').text() === 'true') {
+  // console.log($('#is_accepted').attr("value"))
+  if ($('#is_accepted').attr("value") === 'true') {
+    $('#is_accepted').addClass("complete")
+    $('#time_est').addClass("complete")
+    $('#is_accepted').empty();
     $('#is_accepted').append(`
-    <p><i class="fas fa-check"></i> Order is confirmed.</p>
+    <p><i class="fas fa-check"></i> Order is confirmed</p>
     `)
+    $('#time_est').empty();
     $('#time_est').append(`
-    <p>${$('#time_est').text()} minutes.</p>
+    <p><i class="fas fa-hourglass-half"></i> ${$('#time_est').attr("value")} minutes</p>
     `)
   }
 
-  if ($('#is_done').text() === 'true') {
+  if ($('#is_done').attr("value") === 'true') {
+    $('#is_done').addClass("complete")
+    $('#is_done').empty();
     $('#is_done').append(`
-    <p><i class="fas fa-check"></i> Order is completed.</p>
+    <p><i class="fas fa-check"></i> Order is completed</p>
     `)
   }
 
