@@ -15,9 +15,9 @@ router.get('/confirmed/:id', (req, res) => {
     for (let i = 0; i < checkoutStuff.length; i++) {
       subtotal += (checkoutStuff[i].price * checkoutStuff[i].quantity);
     }
-    totals.subtotal = Math.round(subtotal * 100) / 100;
-    totals.tax = Math.round(subtotal * 0.12 * 100) / 100;
-    totals.total = Math.round((subtotal + subtotal * 0.12) * 100) / 100;
+    totals.subtotal = (Math.round(subtotal * 100) / 100).toFixed(2);
+    totals.tax = (Math.round(subtotal * 0.12 * 100) / 100).toFixed(2);
+    totals.total = (Math.round((subtotal + subtotal * 0.12) * 100) / 100).toFixed(2);
 
     res.render('confirmed', { checkoutStuff, order_id, totals });
   });

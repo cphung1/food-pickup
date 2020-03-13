@@ -44,11 +44,16 @@ $(document).ready(function() {
       url: '/apis/checkoutItems',
       data: ($inputData),
       success: function(data) {
-        let item = data['itemsCheckInCheckout'];
-        let totals = data['totals'];
+        const item = data['itemsCheckInCheckout'];
+        const totals = data['totals'];
+        // const arr = item;
+        // let price = 0;
+        // arr.forEach(function(element, index) {
+        //   console.log(element.price, element.quantity)
+        //   price = (Math.round((item.price  * item.quantity) * 100) / 100).toFixed(2)
+        // })
         loadItems(item, totals);
         $(`#${$inputModal}`).modal("hide")
-        // $('#collapse1').removedClass("panel-collapse collapse")
         $('#collapse1').addClass("panel-collapse collapse show")
       }
     });

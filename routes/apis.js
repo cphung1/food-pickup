@@ -68,9 +68,9 @@ let checkoutUpdater = function(cb) {
       for (let i = 0; i < itemsInCheckout.length; i++) {
         subtotal += (itemsInCheckout[i].price * itemsInCheckout[i].quantity);
       }
-      totals.subtotal = Math.round(subtotal * 100) / 100;
-      totals.tax = Math.round(subtotal * 0.12 * 100) / 100;
-      totals.total = Math.round((subtotal + subtotal * 0.12) * 100) / 100;
+      totals.subtotal = (Math.round(subtotal * 100) / 100).toFixed(2);
+      totals.tax = (Math.round(subtotal * 0.12 * 100) / 100).toFixed(2);
+      totals.total = (Math.round((subtotal + subtotal * 0.12) * 100) / 100).toFixed(2);
 
       cb({ itemsCheckInCheckout: itemsInCheckout, totals: totals });
     });
