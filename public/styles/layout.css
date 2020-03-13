@@ -343,7 +343,7 @@ checkout {
 checkout header {
   width: 22vw;
   border: 2px solid #B7D9EB;
-  border-radius: 0.25rem;
+  border-radius: 0.4em;
   padding: 7%;
   margin-top: 2%;
   height: max-content;
