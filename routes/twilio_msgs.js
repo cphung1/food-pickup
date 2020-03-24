@@ -18,7 +18,7 @@ const timeConfirmed = function (time_est) {
   .create({
     body: `Your order has been confirmed. It will be ready in approximately ${time_est} minutes.`,
     from: '+16042621059',
-    to: '+17809918297'
+    to: '+16474703858'
   })
   .then(message => console.log(message.sid));
 }
@@ -28,7 +28,7 @@ const orderCompleted = function () {
   .create({
     body: `Your order is completed! 😊`,
     from: '+16042621059',
-    to: '+17809918297'
+    to: '+16474703858'
   })
   .then(message => console.log(message.sid));
 }

@@ -48,7 +48,7 @@ router.post('/deleteItems', (req, res) => {
 });
 
 router.post("/confirmed/:id", function(req, res) {
-  // orderConfirmed(order_id) // Sends text
+  orderConfirmed(order_id) // Sends text
   res.send(`${order_id}`)
 });
 

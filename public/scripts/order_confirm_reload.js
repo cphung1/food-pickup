@@ -1,12 +1,7 @@
 // auto refreshes page for customer
 $(function() {
-  // setTimeout(function() {location.reload();}, 5000);
+  setTimeout(function() {location.reload();}, 5000);
 
-  // const url = window.location.href
-  // const arr = url.split('/')
-  // console.log(arr[arr.length - 1])
-
-  // console.log($('#is_accepted').attr("value"))
   if ($('#is_accepted').attr("value") === 'true') {
     $('#is_accepted').addClass("complete")
     $('#time_est').addClass("complete")
