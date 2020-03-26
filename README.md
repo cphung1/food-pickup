@@ -1,51 +1,51 @@
 ### Food Pick-up 
 A food ordering pick-up app for a single restaurant. 
-Built as a group mditerm project using AJAX. 
+Built as a group mditerm project using AJAX, Node and Express. 
 
 ## Final Project 
 
 **Main Page**
-!["Screenshot of the main page"]()
+!["Screenshot of the main page"](https://github.com/cphung1/food-pickup/blob/master/public/images/main.png)
 
 
 **Adding Item**
-!["Screenshot of Adding Item"]()
+!["Screenshot of Adding Item"](https://github.com/cphung1/food-pickup/blob/master/public/images/main_modal.png)
 
 
 **Customer Confirmation Page**
-!["Screenshot of Customer Confirmation Page"]()
+!["Screenshot of Customer Confirmation Page"](https://github.com/cphung1/food-pickup/blob/master/public/images/cust_order_confirm.png)
 
 
 **Customer Time Update**
-!["Screenshot of Customer Time Update"]()
+!["Screenshot of Customer Time Update"](https://github.com/cphung1/food-pickup/blob/master/public/images/cust_time.png)
 
 
 **Customer Order Complete**
-!["Screenshot of Customer Order Complete"]()
+!["Screenshot of Customer Order Complete"](https://github.com/cphung1/food-pickup/blob/master/public/images/cust_order_complete.png)
 
 
 **Restaurant Confirmation Page**
-!["Screenshot of Restaurant Confirmation Page"]()
+!["Screenshot of Restaurant Confirmation Page"](https://github.com/cphung1/food-pickup/blob/master/public/images/rest_confirm.png)
 
 
 **Restaurant Time Confirmation**
-!["Screenshot of Restaurant Time Confirmation"]()
+!["Screenshot of Restaurant Time Confirmation"](https://github.com/cphung1/food-pickup/blob/master/public/images/rest_time.png)
 
 
 **Restaurant Order Completed**
-!["Screenshot of Restaurant Order Completed"]()
+!["Screenshot of Restaurant Order Completed"](https://github.com/cphung1/food-pickup/blob/master/public/images/rest_order_complete.png)
 
 
 **Restaurant Order Text**
-!["Screenshot of Restaurant Order Text"]()
+!["Screenshot of Restaurant Order Text"](https://github.com/cphung1/food-pickup/blob/master/public/images/txt_rest.png)
 
 
 **Customer Order Confirmation Text**
-!["Screenshot of Customer Order Confirmation Text"]()
+!["Screenshot of Customer Order Confirmation Text"](https://github.com/cphung1/food-pickup/blob/master/public/images/txt_time.png)
 
 
 **Customer Order Completed Text**
-!["Screenshot of Customer Order Completed Text"]()
+!["Screenshot of Customer Order Completed Text"](https://github.com/cphung1/food-pickup/blob/master/public/images/txt_completed.png)
 
 ## Getting Started
 
